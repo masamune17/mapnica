@@ -16,14 +16,8 @@
       </div>  
     </div>  
   </div>
-  <script>
-  function initMap(){
-    let map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.4036, lng: 139.4553},
-    zoom: 4
-    });
-  }
-  </script>
+
+  <%= javascript_include_tag "google-map-api" %>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
   <footer></footer>
 </body>
