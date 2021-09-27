@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  label: スタンフォード・ブリッジの戦い
+  abstract: スタンフォード・ブリッジの戦い（英 Battle of Stamford Bridge）は、ノルマン・コンクエストの直前の時期に起こったイングランドでの戦い。1066年9月25日に起こった。ハロルド2世が弟トスティに勝利した結果、トスティと支援者のノルウェー王ハーラル3世は戦死、ヴァイキング（ノルウェー人）はイングランドから追放された。しかし、直後、ハロルド2世は10月14日のヘイスティングズの戦いで戦死し、ノルマンディー公ギヨーム2世がウィリアム1世として即位、ノルマン朝が始まった。
+  latitude: 53.9925
+  longitude: -0.9125
+  accrual_date: 1066-09-25
+
+two:
+  label: ヘイスティングズの戦い
+  abstract: ヘイスティングズの戦い（ヘイスティングズのたたかい、英：Battle of Hastings）は、1066年にイングランドのヘイスティングスから若干内陸に入ったバトルの丘でノルマンディー公ギヨーム2世とイングランド王ハロルド2世との間で戦われた会戦である。
+  latitude: 50.9119
+  longitude: 0.4875
+  accrual_date: 1066-10-14
