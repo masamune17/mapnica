@@ -13,10 +13,10 @@
       <div class="main-container-left-item"></div>
       <div class="map-container">
         <div id='map'></div>
+        <div id='marker-data' data-position=<%= @all_history_position %> ></div>
       </div>  
     </div>  
   </div>
-
   <%= javascript_include_tag "google-map-api" %>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
   <footer></footer>
