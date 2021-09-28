@@ -38,7 +38,6 @@ div.main-container-left-items{
 
 p.left-text{
   border-bottom: solid 1px #555;
-  width: 80%;
 }
 
 div.accrual-date-container{
@@ -57,12 +56,15 @@ div.abstract-container{
 }
 
 #accrual_date {
+  margin-top: 5px;
   font-weight: bold;
 }
 #label {
+  margin-top: 5px;
   font-weight: bold;
 }
 #abstract {
+  margin-top: 5px;
   font-weight: bold;
 }
 div.map-container{
