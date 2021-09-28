@@ -10,10 +10,15 @@
   <div class="main">
     <div class="tag-container"></div>
     <div class="main-container">
-      <div class="main-container-left-item"></div>
+      <div class="main-container-left-item">        
+        <div id='accrual_date'>  </div>
+        <div id='label'>  </div>
+        <div id='abstract'>  </div>
+      </div>
       <div class="map-container">
         <div id='map'></div>
         <div id='marker-data' data-position=<%= @all_history_position %> ></div>
+        <div id='history-data' data-history=<%= @all_history_abstract %> ></div>
       </div>  
     </div>  
   </div>

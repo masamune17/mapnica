@@ -1,8 +1,13 @@
-function initMap() {
 const marker = [];
+const infoWindow = [];
+// const test = document.querySelector("#marker-data").dataset.position
 const markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
-console.log(markerData)
+const historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
 
+console.log(markerData)
+console.log(markerData[0][0])
+console.log("テスト")
+async function initMap() {
 const map = new google.maps.Map(document.getElementById('map'), {
   center: {
     lat: markerData[0][0],
@@ -20,10 +25,21 @@ const map = new google.maps.Map(document.getElementById('map'), {
         position: markerLatLng,
         map: map
       });
+
+      markerEvent(i);
     }
+    console.log(markerData[0])
+}
+
+function markerEvent(i) {
+  marker[i].addListener('click', function() {
+    
+    document.getElementById("accrual_date").innerHTML = markerData[i][2]
+    document.getElementById("label").innerHTML = markerData[i][3]    
+    document.getElementById("abstract").innerHTML = historyData[i]
+});
 }
 
 window.onload = function() {
   initMap();
 }
-
