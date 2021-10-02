@@ -1,12 +1,10 @@
 const marker = [];
 const infoWindow = [];
-// const test = document.querySelector("#marker-data").dataset.position
 const markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
 const historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
 
-console.log(markerData)
-console.log(markerData[0][0])
-console.log("テスト")
+
+// console.log(historyData[0])
 async function initMap() {
 const map = new google.maps.Map(document.getElementById('map'), {
   center: {
@@ -28,15 +26,13 @@ const map = new google.maps.Map(document.getElementById('map'), {
 
       markerEvent(i);
     }
-    console.log(markerData[0])
 }
 
 function markerEvent(i) {
   marker[i].addListener('click', function() {
-    
     document.getElementById("accrual_date").innerHTML = markerData[i][2]
     document.getElementById("label").innerHTML = markerData[i][3]    
-    document.getElementById("abstract").innerHTML = historyData[i]
+    document.getElementById("abstract").innerHTML = historyData[i].replace(/　/g, ' ')
 });
 }
 
