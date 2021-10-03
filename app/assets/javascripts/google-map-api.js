@@ -1,10 +1,19 @@
+const inputElem = document.getElementById('era');
+let era = Number(inputElem.value)
+const currentValueElem = document.getElementById('current-value');
 const marker = [];
-const infoWindow = [];
 const markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
 const historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
 
+const setCurrentValue = (val) => {
+  currentValueElem.innerText = val;
+  era = Number(val)
+}
 
-// console.log(historyData[0])
+const rangeOnChange = (e) =>{
+  setCurrentValue(e.target.value);
+}
+
 async function initMap() {
 const map = new google.maps.Map(document.getElementById('map'), {
   center: {
@@ -14,22 +23,25 @@ const map = new google.maps.Map(document.getElementById('map'), {
   });
   
     for (var i = 0; i < markerData.length; i++) {
-      markerLatLng = new google.maps.LatLng({
-        lat: markerData[i][0],
-        lng: markerData[i][1]
-      });
+      const year = Number(markerData[i][2].match(/\d+/))
+      if( era <= year && year < era + 100) {
+        markerLatLng = new google.maps.LatLng({
+          lat: markerData[i][0],
+          lng: markerData[i][1]
+        });
 
-      marker[i] = new google.maps.Marker({
-        position: markerLatLng,
-        map: map
-      });
+        marker[i] = new google.maps.Marker({
+          position: markerLatLng,
+          map: map
+        });
 
-      markerEvent(i);
+        markerEvent(i);
+      }        
     }
 }
 
 function markerEvent(i) {
-  marker[i].addListener('click', function() {
+  marker[i].addListener('click', function() {    
     document.getElementById("accrual_date").innerHTML = markerData[i][2]
     document.getElementById("label").innerHTML = markerData[i][3]    
     document.getElementById("abstract").innerHTML = historyData[i].replace(/　/g, ' ')
@@ -37,5 +49,11 @@ function markerEvent(i) {
 }
 
 window.onload = function() {
-  initMap();
+  // initMap(); 
+  // 変更に合わせてイベントを発火する
+  inputElem.addEventListener('input', rangeOnChange)
+  inputElem.addEventListener('input', initMap)
+  // ページ読み込み時の値をセット
+  setCurrentValue(inputElem.value);
+
 }

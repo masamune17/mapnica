@@ -2,13 +2,17 @@
 <head>
   <title>History Map</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+
 </head>
 <body>  
   <header>
       <h1 class="title">History Map</h1>  
   </header>
   <div class="main">
-    <div class="tag-container"></div>
+    <div class="tag-container">
+      <p>西暦<span id="current-value"></span>年代</p>
+      <input type="range" id="era" min="-400" max="2000" step="100" value="1000">      
+    </div>
     <div class="main-container">
       <div class="main-left-item-container">
         <div class="main-left-items">
