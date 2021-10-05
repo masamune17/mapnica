@@ -2,9 +2,7 @@ const inputElem = document.getElementById('era');
 let era = Number(inputElem.value)
 const currentValueElem = document.getElementById('current-value');
 const marker = [];
-const markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
-const historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
-
+var markerData,historyData;
 const setCurrentValue = (val) => {
   currentValueElem.innerText = val;
   era = Number(val)
@@ -14,7 +12,13 @@ const rangeOnChange = (e) =>{
   setCurrentValue(e.target.value);
 }
 
+function input(){
+  markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
+  historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
+}
+
 async function initMap() {
+  const dataInput = await input()
 const map = new google.maps.Map(document.getElementById('map'), {
   center: {
     lat: markerData[0][0],
@@ -23,7 +27,8 @@ const map = new google.maps.Map(document.getElementById('map'), {
   });
   
     for (var i = 0; i < markerData.length; i++) {
-      const year = Number(markerData[i][2].match(/\d+/))
+      // const year = Number(markerData[i][2].match(/\d+/))
+      const year = Number(markerData[i][2].slice( 0, -6 ))
       if( era <= year && year < era + 100) {
         markerLatLng = new google.maps.LatLng({
           lat: markerData[i][0],
@@ -43,8 +48,8 @@ const map = new google.maps.Map(document.getElementById('map'), {
 function markerEvent(i) {
   marker[i].addListener('click', function() {    
     document.getElementById("accrual_date").innerHTML = markerData[i][2]
-    document.getElementById("label").innerHTML = markerData[i][3]    
-    document.getElementById("abstract").innerHTML = historyData[i].replace(/　/g, ' ')
+    document.getElementById("label").innerHTML = historyData[i][0].replace(/　/g, ' ')
+    document.getElementById("abstract").innerHTML = historyData[i][1].replace(/　/g, ' ')
 });
 }
 
