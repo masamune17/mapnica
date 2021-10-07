@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <head>
   <title>History Map</title>
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-
 </head>
 <body>  
   <header>
-      <h1 class="title">History Map</h1>  
+      <h1 class="title">History Map</h1> 
+      <input class="search" type="search"placeholder="キーワードを入力">
   </header>
   <div class="main">
     <div class="tag-container">
@@ -37,7 +36,6 @@
       </div>  
     </div>  
   </div>
-  <%= javascript_include_tag "google-map-api" %>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
+  <%= javascript_pack_tag 'application'%>
   <footer></footer>
 </body>

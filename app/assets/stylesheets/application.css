@@ -9,11 +9,23 @@ header{
   align-items: center;
   vertical-align: middle;
   background-color: rgb(126, 126, 126);
+  position: relative;
+
 }
 h1.title{
   font-size: 5vh;
   font-weight: bold;
 }
+input.search{
+  width: 20%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  border-radius:2px 0 0 2px;
+  background:#eee;
+}
+
 div.main{
   width: 100%;
   height: 90%;

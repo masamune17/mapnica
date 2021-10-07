@@ -3,11 +3,11 @@
   <head>
     <title>HistoryMapApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" , as='style', href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">  
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks': 'reload' %>
+    <script  async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>"></script>
   </head>
 
   <body>
