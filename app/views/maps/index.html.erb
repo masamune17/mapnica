@@ -5,12 +5,16 @@
 <body>  
   <header>
       <h1 class="title">History Map</h1> 
-      <input class="search" type="search"placeholder="キーワードを入力">
+      <div class="search-container">
+        <div id="search-items" class="search-items">
+          <input type="search" id="search-box" class="search-box" placeholder="キーワードを入力">
+        </div> 
+      </div>      
   </header>
   <div class="main">
-    <div class="tag-container">
+    <div class="tag-container" id="tag-container">
       <p>西暦<span id="current-value"></span>年代</p>
-      <input type="range" id="era" min="-400" max="2000" step="100" value="1000">      
+      <input type="range" id="era" min="-400" max="2000" step="100" value="1000">
     </div>
     <div class="main-container">
       <div class="main-left-item-container">
