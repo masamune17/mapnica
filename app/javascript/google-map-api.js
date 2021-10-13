@@ -3,13 +3,13 @@ const clickColor = "blue"
 const markers = [];
 const searchResults = []
 const input = document.getElementById('search-box');
-
+const wordValue = 100
+let map
 let inputElem = document.getElementById('era');
 let currentValueElem = document.getElementById('current-value');
 let markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
 let historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
 
-inputElem.addEventListener('input', rangeOnChange)
 input.addEventListener('input', updateResult);
 
 const setCurrentValue = (val) => {
@@ -21,6 +21,8 @@ const setCurrentValue = (val) => {
 const rangeOnChange = (e) =>{
   setCurrentValue(e.target.value);
 }
+
+inputElem.addEventListener('input', rangeOnChange)
 
 function initMap() {
 map = new google.maps.Map(document.getElementById('map'), {
@@ -82,7 +84,7 @@ function updateResult(input) {
   }
 }
 
-const wordValue = 100
+
 function outputResult(keyword){
   var results = ""
   var resultsArray = []
@@ -144,10 +146,11 @@ function clickResult(arrayNum){
     let resultSlidesr =`<p>西暦<span id="current-value">${resultEra}</span>年代</p>`
     + `<input type="range" id="era" min="-400" max="2000" step="100" value="${resultEra}">`
     document.getElementById("tag-container").innerHTML = resultSlidesr
-    setSlider()
+    setSlider()    
     showMarker(resultEra)
     showMarkerInfo(arrayNum)
     changeColor(arrayNum,clickColor)
+    map.panTo(new google.maps.LatLng(markerData[arrayNum][0],markerData[arrayNum][1]));
   }, false);    
 }
 
