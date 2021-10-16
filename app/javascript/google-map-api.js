@@ -4,10 +4,10 @@ const markers = [];
 const searchResults = []
 const input = document.getElementById('search-box');
 const wordValue = 100
+const markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
 let map
 let inputElem = document.getElementById('era');
 let currentValueElem = document.getElementById('current-value');
-let markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
 
 input.addEventListener('input', updateResult);
 
