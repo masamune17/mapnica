@@ -1,6 +1,9 @@
 {
   "name": "history-map-app",
   "private": true,
+  "scripts": {
+    "lint": "yarn run eslint --ext .vue --ext .js app/javascript"
+  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -12,6 +15,12 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
     "webpack-dev-server": "^3"
   }
 }
