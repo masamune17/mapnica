@@ -8,7 +8,6 @@ let map
 let inputElem = document.getElementById('era');
 let currentValueElem = document.getElementById('current-value');
 let markerData = JSON.parse(document.querySelector("#marker-data").dataset.position);
-let historyData = JSON.parse(document.querySelector("#history-data").dataset.history);
 
 input.addEventListener('input', updateResult);
 
@@ -35,12 +34,12 @@ map = new google.maps.Map(document.getElementById('map'), {
 
 function showMarker(selectedEra){
   for (let i = 0; i < markerData.length; i++) {
-    let year = Number(markerData[i]['accrual_date'].slice( 0, -6 ))
+    let year = Number(markerData[i].accrual_date.slice( 0, -6 ))
     if( selectedEra <= year && year < selectedEra + 100) {
       if(markers[i] == null){
         let markerLatLng = new google.maps.LatLng({
-          lat: markerData[i]['latitude'],
-          lng: markerData[i]['longitude']
+          lat: markerData[i].latitude,
+          lng: markerData[i].longitude
         });
   
         markers[i] = new google.maps.Marker({
@@ -67,9 +66,9 @@ function markerEvent(i) {
 }
 
 function showMarkerInfo(i){
-  document.getElementById("accrual_date").innerHTML = markerData[i]['accrual_date']
-    document.getElementById("label").innerHTML = historyData[i]['label'].replace(/　/g, ' ')
-    document.getElementById("abstract").innerHTML = historyData[i]['abstract'].replace(/　/g, ' ')
+  document.getElementById("accrual_date").innerHTML = markerData[i].accrual_date
+    document.getElementById("label").innerHTML = markerData[i].label.replace(/　/g, ' ')
+    document.getElementById("abstract").innerHTML = markerData[i].abstract.replace(/　/g, ' ')
 }
 
 function updateResult(input) {
@@ -88,21 +87,21 @@ function updateResult(input) {
 function outputResult(keyword){
   var results = ""
   var resultsArray = []
-  for (let i = 0; i < historyData.length; i++) {
-    var labelSearch = historyData[i]['label'].toLowerCase().indexOf( keyword )
+  for (let i = 0; i < markerData.length; i++) {
+    var labelSearch = markerData[i].label.toLowerCase().indexOf( keyword )
     if(labelSearch !== -1){
-      var result = generateResult(keyword,historyData[i]['label'],i,true)
+      var result = generateResult(keyword,markerData[i].label,i,true)
       results += result
       resultsArray.push(i)
     }
   }
-  for (let i = 0; i < historyData.length; i++) {
-    var labelSearch = historyData[i]['label'].toLowerCase().indexOf( keyword )
+  for (let i = 0; i < markerData.length; i++) {
+    var labelSearch = markerData[i].label.toLowerCase().indexOf( keyword )
     if(labelSearch == -1){
-      var abstractSearch = historyData[i]['abstract'].toLowerCase().indexOf( keyword )
+      var abstractSearch = markerData[i].abstract.toLowerCase().indexOf( keyword )
       if(abstractSearch !== -1){
         var start = (abstractSearch >= wordValue/2)? abstractSearch-wordValue/2: 0
-        var result = generateResult(keyword,historyData[i]['abstract'].substr(start, wordValue),i,false)
+        var result = generateResult(keyword,markerData[i].abstract.substr(start, wordValue),i,false)
         results += result
         resultsArray.push(i)
       }
@@ -132,7 +131,7 @@ function generateResult(keyword,matchSentence,arrayNum,jugeLabel){
     + '</div>'
   }else{
     resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">`
-    + `<small class='search-result'>名称：${historyData[arrayNum]['label'].substr(0, wordValue)}</small></br>`
+    + `<small class='search-result'>名称：${markerData[arrayNum].label.substr(0, wordValue)}</small></br>`
     + `<p class='search-result'　id="test">${matchWord}</p>`
     + '</div>'
   }    
@@ -142,7 +141,7 @@ function generateResult(keyword,matchSentence,arrayNum,jugeLabel){
 
 function clickResult(arrayNum){
   document.getElementById(`search-result${arrayNum}`).addEventListener('click', function() {  
-    let resultEra = Math.floor(Number(markerData[arrayNum]['accrual_date'].slice( 0, -6 )) / 100) * 100
+    let resultEra = Math.floor(Number(markerData[arrayNum].accrual_date.slice( 0, -6 )) / 100) * 100
     let resultSlidesr =`<p>西暦<span id="current-value">${resultEra}</span>年代</p>`
     + `<input type="range" id="era" min="-400" max="2000" step="100" value="${resultEra}">`
     document.getElementById("tag-container").innerHTML = resultSlidesr
@@ -150,7 +149,7 @@ function clickResult(arrayNum){
     showMarker(resultEra)
     showMarkerInfo(arrayNum)
     changeColor(arrayNum,clickColor)
-    map.panTo(new google.maps.LatLng(markerData[arrayNum]['latitude'],markerData[arrayNum]['longitude']));
+    map.panTo(new google.maps.LatLng(markerData[arrayNum].latitude,markerData[arrayNum].longitude));
   }, false);    
 }
 
