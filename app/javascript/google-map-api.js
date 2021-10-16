@@ -68,8 +68,8 @@ function markerEvent(i) {
 
 function showMarkerInfo(i){
   document.getElementById("accrual_date").innerHTML = markerData[i]['accrual_date']
-    document.getElementById("label").innerHTML = historyData[i][0].replace(/　/g, ' ')
-    document.getElementById("abstract").innerHTML = historyData[i][1].replace(/　/g, ' ')
+    document.getElementById("label").innerHTML = historyData[i]['label'].replace(/　/g, ' ')
+    document.getElementById("abstract").innerHTML = historyData[i]['abstract'].replace(/　/g, ' ')
 }
 
 function updateResult(input) {
@@ -89,20 +89,20 @@ function outputResult(keyword){
   var results = ""
   var resultsArray = []
   for (let i = 0; i < historyData.length; i++) {
-    var labelSearch = historyData[i][0].toLowerCase().indexOf( keyword )
+    var labelSearch = historyData[i]['label'].toLowerCase().indexOf( keyword )
     if(labelSearch !== -1){
-      var result = generateResult(keyword,historyData[i][0],i,true)
+      var result = generateResult(keyword,historyData[i]['label'],i,true)
       results += result
       resultsArray.push(i)
     }
   }
   for (let i = 0; i < historyData.length; i++) {
-    var labelSearch = historyData[i][0].toLowerCase().indexOf( keyword )
+    var labelSearch = historyData[i]['label'].toLowerCase().indexOf( keyword )
     if(labelSearch == -1){
-      var abstractSearch = historyData[i][1].toLowerCase().indexOf( keyword )
+      var abstractSearch = historyData[i]['abstract'].toLowerCase().indexOf( keyword )
       if(abstractSearch !== -1){
         var start = (abstractSearch >= wordValue/2)? abstractSearch-wordValue/2: 0
-        var result = generateResult(keyword,historyData[i][1].substr(start, wordValue),i,false)
+        var result = generateResult(keyword,historyData[i]['abstract'].substr(start, wordValue),i,false)
         results += result
         resultsArray.push(i)
       }
@@ -132,7 +132,7 @@ function generateResult(keyword,matchSentence,arrayNum,jugeLabel){
     + '</div>'
   }else{
     resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">`
-    + `<small class='search-result'>名称：${historyData[arrayNum][0].substr(0, wordValue)}</small></br>`
+    + `<small class='search-result'>名称：${historyData[arrayNum]['label'].substr(0, wordValue)}</small></br>`
     + `<p class='search-result'　id="test">${matchWord}</p>`
     + '</div>'
   }    
