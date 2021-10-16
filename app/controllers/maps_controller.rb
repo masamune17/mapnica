@@ -8,9 +8,12 @@ class MapsController < ApplicationController
     all_history_data = History.all.pluck(:label, :abstract)
     @all_history_data = all_history_data.map{|a| a.map{|a| a.gsub(/\s/, "　")}}.to_json
 
-    @all_history_position = History.all.pluck(:latitude, :longitude, :accrual_date).to_json
+    # @all_history_position = History.all.pluck(:latitude, :longitude, :accrual_date).to_json
+
     logger.debug("コントローラーでデバッグだよ")
-    logger.debug(@all_history_data)
-    logger.debug(@all_history_position.class)
+    # logger.debug(@all_history_data)
+    histories = History.all.map { |history| {'latitude':history.latitude, 'longitude':history.longitude, 'accrual_date':history.accrual_date} }
+    @all_history_position = histories.to_json
+    logger.debug(histories[0][:latitude])
   end
 end

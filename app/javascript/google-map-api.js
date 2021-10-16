@@ -35,12 +35,12 @@ map = new google.maps.Map(document.getElementById('map'), {
 
 function showMarker(selectedEra){
   for (let i = 0; i < markerData.length; i++) {
-    let year = Number(markerData[i][2].slice( 0, -6 ))
+    let year = Number(markerData[i]['accrual_date'].slice( 0, -6 ))
     if( selectedEra <= year && year < selectedEra + 100) {
       if(markers[i] == null){
         let markerLatLng = new google.maps.LatLng({
-          lat: markerData[i][0],
-          lng: markerData[i][1]
+          lat: markerData[i]['latitude'],
+          lng: markerData[i]['longitude']
         });
   
         markers[i] = new google.maps.Marker({
@@ -67,7 +67,7 @@ function markerEvent(i) {
 }
 
 function showMarkerInfo(i){
-  document.getElementById("accrual_date").innerHTML = markerData[i][2]
+  document.getElementById("accrual_date").innerHTML = markerData[i]['accrual_date']
     document.getElementById("label").innerHTML = historyData[i][0].replace(/　/g, ' ')
     document.getElementById("abstract").innerHTML = historyData[i][1].replace(/　/g, ' ')
 }
@@ -142,7 +142,7 @@ function generateResult(keyword,matchSentence,arrayNum,jugeLabel){
 
 function clickResult(arrayNum){
   document.getElementById(`search-result${arrayNum}`).addEventListener('click', function() {  
-    let resultEra = Math.floor(Number(markerData[arrayNum][2].slice( 0, -6 )) / 100) * 100
+    let resultEra = Math.floor(Number(markerData[arrayNum]['accrual_date'].slice( 0, -6 )) / 100) * 100
     let resultSlidesr =`<p>西暦<span id="current-value">${resultEra}</span>年代</p>`
     + `<input type="range" id="era" min="-400" max="2000" step="100" value="${resultEra}">`
     document.getElementById("tag-container").innerHTML = resultSlidesr
@@ -150,7 +150,7 @@ function clickResult(arrayNum){
     showMarker(resultEra)
     showMarkerInfo(arrayNum)
     changeColor(arrayNum,clickColor)
-    map.panTo(new google.maps.LatLng(markerData[arrayNum][0],markerData[arrayNum][1]));
+    map.panTo(new google.maps.LatLng(markerData[arrayNum]['latitude'],markerData[arrayNum]['longitude']));
   }, false);    
 }
 
