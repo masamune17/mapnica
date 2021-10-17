@@ -1,6 +1,7 @@
 body{
   height: 1000px;
 }
+
 header{
   width: 100%;
   height: 10%;
@@ -9,13 +10,32 @@ header{
   align-items: center;
   vertical-align: middle;
   background-color: rgb(126, 126, 126);
-  position: relative;
-
 }
+
 h1.title{
   font-size: 5vh;
   font-weight: bold;
 }
+
+div.main{
+  width: 100%;
+  height: 90%;
+  padding: 0px;
+}
+
+div.search-items-container{
+  width: 100%;
+  height: 10%;
+  background-color: rgb(0, 255, 13);  
+  position: relative;
+}
+
+div.slider-container{
+  text-align: center;
+  height: 50%;
+  width: 100%;
+}
+
 div.search-container{
   width: 25%;
   height: 25%;
@@ -25,16 +45,19 @@ div.search-container{
   margin: 10px;
   background:#eee;
 }
+
 div.search-items{
   width: 100%;
   height: 100%;
   position: relative;
 }
+
 input.search-box{
   width: 100%;
   border-radius:2px 0 0 2px;
   background:#eee;
 }
+
 div.search-results{
   padding: 10px;
   width: 90%;
@@ -45,60 +68,71 @@ div.search-results{
   position: absolute;
   z-index: 1;
 }
+
 div.search-result{
+  cursor: pointer;
   border-bottom: solid 1px #888;
   margin-bottom: 10px;
 }
+
 p.search-result{
   color: #555;
 }
+
+
 strong.matched_word{
   color: #000;
   font-weight: bold;
 }
+
+
 small.search-result{
   color: #555;
   border-bottom: solid 1px #888;
 }
-div.main{
-  width: 100%;
-  height: 90%;
-  padding: 0px;
-}
 
-div.tag-container{
-  width: 100%;
-  height: 10%;
-  background-color: rgb(0, 255, 13);
-  text-align: center;
-}
 div.main-container{
   width: 100%;
   height: 90%;
+  position: relative;
 }
-div.main-left-item-container{
-  float: left;
+
+.main-explain-item-container{
+  z-index: 1;
+  position: absolute;
 	width: 25%;
   height: 100%; 
+  opacity: 0;
+  transition:opacity 1s,transform 1s;
+  transform:translateX(-25%);
   background-color:#ffffff;
 }
-div.main-left-items{
-  height: 100%;
-  padding: 10px;
+
+.fadein-after{
+  opacity: 1;
+  transform: translate(0);
 }
+
+div.main-abstract-items{
+  height: 100%;  
+}
+
 div.accrual-date-container{
   height: 10%;
+  padding: 10px;
 }
 
 div.label-container{
   height: 10%;
+  padding: 10px;
 }
 
 div.abstract-container{
   height: 80%;
+  padding: 10px;
 }
 
-p.left-text{
+p.abstract-text{
   border-bottom: solid 1px #555;
 }
 
@@ -109,27 +143,27 @@ p.abstract-text{
 p#accrual_date {
   font-weight: bold;
 }
+
 p#label {
   font-weight: bold;
 }
+
 p#abstract {
   height: 90%;
   font-weight: bold;  
   overflow: scroll;
 }
+
 div.map-container{
-  float: left;
-	width: 75%;
+  float: abstract;
+	width: 100%;
   height: 100%;
 }
+
 #map{
   width: 100%;
   height: 100%;
   display: inline-block;
-}
-footer{
-  height: 10%;
-  background-color: rgb(126, 126, 126);
 }
 
 input[type="range"] {
@@ -143,6 +177,7 @@ input[type="range"] {
   border-radius: 10px; /* バーの両端の丸み */
   border: solid 3px #dff1ff; /* バー周囲の線 */
 }
+
 .labels {
   color: #ffffff;
   background: #000000;
