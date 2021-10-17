@@ -1,16 +1,12 @@
-# coding: utf-8
+# frozen_string_literal: true
 
 class MapsController < ApplicationController
   def index
-    # all_history_label = History.all.pluck(:label)
-    # @all_history_label = all_history_label.map{|a| a.gsub(/\s/, "　")}.to_json
-
-    all_history_data = History.all.pluck(:label, :abstract)
-    @all_history_data = all_history_data.map{|a| a.map{|a| a.gsub(/\s/, "　")}}.to_json
-
-    @all_history_position = History.all.pluck(:latitude, :longitude, :accrual_date).to_json
-    logger.debug("コントローラーでデバッグだよ")
-    logger.debug(@all_history_data)
-    logger.debug(@all_history_position.class)
+    # json変換の関係で半角スペースを全角スペースに置換
+    histories_position = History.all.map do |history|
+      { latitude: history.latitude, longitude: history.longitude, accrual_date: history.accrual_date, label: history.label.gsub(/\s/, '　'),
+        abstract: history.abstract.gsub(/\s/, '　') }
+    end
+    @all_history_position = histories_position.to_json
   end
 end
