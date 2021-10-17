@@ -23,7 +23,7 @@ const rangeOnChange = (e) => {
 inputElem.addEventListener('input', rangeOnChange)
 
 function initMap () {
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), { // eslint-disable-line
     center: {
       lat: 41,
       lng: 12
@@ -37,12 +37,12 @@ function showMarker (selectedEra) {
     const year = Number(markerData[i].accrual_date.slice(0, -6))
     if (selectedEra <= year && year < selectedEra + 100) {
       if (markers[i] == null) {
-        const markerLatLng = new google.maps.LatLng({
+        const markerLatLng = new google.maps.LatLng({ // eslint-disable-line
           lat: markerData[i].latitude,
           lng: markerData[i].longitude
         })
 
-        markers[i] = new google.maps.Marker({
+        markers[i] = new google.maps.Marker({ // eslint-disable-line
           position: markerLatLng,
           map: map,
           icon: pinSymbol(originColor)
@@ -67,8 +67,8 @@ function markerEvent (i) {
 
 function showMarkerInfo (i) {
   document.getElementById('accrual_date').innerHTML = markerData[i].accrual_date
-  document.getElementById('label').innerHTML = markerData[i].label.replace(/　/g, ' ')
-  document.getElementById('abstract').innerHTML = markerData[i].abstract.replace(/　/g, ' ')
+  document.getElementById('label').innerHTML = markerData[i].label.replace(/　/g, ' ') // eslint-disable-line
+  document.getElementById('abstract').innerHTML = markerData[i].abstract.replace(/　/g, ' ') // eslint-disable-line
 }
 
 function updateResult (input) {
@@ -119,7 +119,7 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
     .trim()
     .replaceAll(/[.*+?^=!:${}()|[\]/\\]/g, '\\$&')
   const pattern = new RegExp(wordsPattern, 'i')
-  const matchWord = matchSentence.replace(/　/g, ' ').replace(
+  const matchWord = matchSentence.replace(/　/g, ' ').replace( // eslint-disable-line
     pattern,
     '<strong class=\'matched_word\'>$&</strong>'
   )
@@ -147,7 +147,7 @@ function clickResult (arrayNum) {
     showMarker(resultEra)
     showMarkerInfo(arrayNum)
     changeColor(arrayNum, clickColor)
-    map.panTo(new google.maps.LatLng(markerData[arrayNum].latitude, markerData[arrayNum].longitude))
+    map.panTo(new google.maps.LatLng(markerData[arrayNum].latitude, markerData[arrayNum].longitude)) // eslint-disable-line
   }, false)
 }
 
