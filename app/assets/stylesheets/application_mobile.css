@@ -1,0 +1,51 @@
+@media screen and (max-width: 1024px) {
+  div.search-container{
+    width: 40%;
+    height: 25%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+    background:#eee;
+  }
+
+  div.search-results{
+    padding: 10px;
+    width: 90%;
+    max-height: 300px;
+    background:#eee;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    position: absolute;
+    z-index: 1;
+  }
+
+  small.search-result{
+    font-size: 7px;
+    color: #555;
+    border-bottom: solid 1px #888;
+  }
+
+  p.search-result{
+    font-size: 10px;
+    color: #555;
+  }
+
+  .main-explain-item-container{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 35%; 
+    opacity: 0;
+    transition:opacity 1s,transform 1s;
+    transform:translateY(100%);
+    background-color:#ffffff;
+  }
+
+  .fadein-after{
+    z-index: 1;
+    opacity: 1;
+    transform: translate(0);
+    bottom: 0;
+  }
+}

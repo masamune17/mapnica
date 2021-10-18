@@ -4,7 +4,7 @@ const markers = []
 const input = document.getElementById('search-box')
 const wordValue = 100
 const markerData = JSON.parse(document.querySelector('#marker-data').dataset.position)
-let map
+let map, selectedMarker
 let inputElem = document.getElementById('era')
 let currentValueElem = document.getElementById('current-value')
 
@@ -66,6 +66,7 @@ function markerEvent (i) {
 }
 
 function showMarkerInfo (i) {
+  document.getElementById('main-explain-item-container').classList.add('fadein-after')
   document.getElementById('accrual_date').innerHTML = markerData[i].accrual_date
   document.getElementById('label').innerHTML = markerData[i].label.replace(/　/g, ' ') // eslint-disable-line
   document.getElementById('abstract').innerHTML = markerData[i].abstract.replace(/　/g, ' ') // eslint-disable-line
@@ -131,7 +132,7 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
   } else {
     resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
     `<small class='search-result'>名称：${markerData[arrayNum].label.substr(0, wordValue)}</small></br>` +
-    `<p class='search-result' id="test">${matchWord}</p>` +
+    `<p class='search-result' >${matchWord}</p>` +
     '</div>'
   }
   return resultElement
@@ -142,7 +143,7 @@ function clickResult (arrayNum) {
     const resultEra = Math.floor(Number(markerData[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
     const resultSlidesr = `<p>西暦<span id="current-value">${resultEra}</span>年代</p>` +
     `<input type="range" id="era" min="-400" max="2000" step="100" value="${resultEra}">`
-    document.getElementById('tag-container').innerHTML = resultSlidesr
+    document.getElementById('slider-container').innerHTML = resultSlidesr
     setSlider()
     showMarker(resultEra)
     showMarkerInfo(arrayNum)
@@ -168,17 +169,15 @@ function pinSymbol (color) {
   }
 }
 function changeColor (i, color) {
-  restoreColors()
+  restoreColors(markers[i])
+  selectedMarker = markers[i]
   markers[i].setIcon(pinSymbol(color))
 }
-function restoreColors () {
-  for (let i = 0; i < markers.length; i++) {
-    if (markers[i] != null) {
-      markers[i].setIcon(pinSymbol(originColor))
-    }
+function restoreColors (selectMarker) {
+  if (selectedMarker != null && selectedMarker !== selectMarker) {
+    selectedMarker.setIcon(pinSymbol(originColor))
   }
 }
-
 window.onload = function () {
   initMap()
   setCurrentValue(inputElem.value)

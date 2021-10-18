@@ -5,40 +5,41 @@
 <body>  
   <header>
       <h1 class="title">History Map</h1> 
+  </header>
+  <div class="main">
+    <div class="search-items-container" id="search-items-container">
+      <div class="slider-container" id="slider-container">
+        <p>西暦<span id="current-value"></span>年代</p>
+        <input type="range" id="era" min="-400" max="2000" step="100" value="1000">
+      </div>      
       <div class="search-container">
         <div id="search-items" class="search-items">
           <input type="search" id="search-box" class="search-box" placeholder="キーワードを入力">
         </div> 
-      </div>      
-  </header>
-  <div class="main">
-    <div class="tag-container" id="tag-container">
-      <p>西暦<span id="current-value"></span>年代</p>
-      <input type="range" id="era" min="-400" max="2000" step="100" value="1000">
+      </div>
     </div>
     <div class="main-container">
-      <div class="main-left-item-container">
-        <div class="main-left-items">
+      <div class="main-explain-item-container" id="main-explain-item-container">
+        <div class="main-abstract-items">
           <div class="accrual-date-container">
-            <p class="left-text">発生日</p>
-            <p id='accrual_date'></p>
+            <p class="abstract-text">発生日</p>
+            <p id="accrual_date"></p>
           </div>
           <div class="label-container">
-            <p class="left-text">名称</p>
-            <p id='label'></p>
+            <p class="abstract-text">名称</p>
+            <p id="label"></p>
           </div>
           <div class="abstract-container">
             <p class="abstract-text">概要</p>
-            <p id='abstract'></p>
+            <p id="abstract"></p>
           </div>
         </div>
       </div>
       <div class="map-container">
-        <div id='map'></div>
-        <div id='marker-data' data-position=<%= @all_history_position %> ></div>
+        <div id="map"></div>
+        <div id="marker-data" data-position=<%= @all_history_position %> ></div>
       </div>  
     </div>  
   </div>
-  <%= javascript_pack_tag 'application'%>
-  <footer></footer>
+  <%= javascript_pack_tag "application"%>
 </body>
