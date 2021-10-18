@@ -141,7 +141,7 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
 function clickResult (arrayNum) {
   document.getElementById(`search-result${arrayNum}`).addEventListener('click', function () {
     const resultEra = Math.floor(Number(markerData[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
-    const resultSlidesr = `<p>西暦<span id="current-value">${resultEra}</span>年代</p>` +
+    const resultSlidesr = `<p class="era"><span id="current-value">${resultEra}</span> Year</p>` +
     `<input type="range" id="era" min="-400" max="2000" step="100" value="${resultEra}">`
     document.getElementById('slider-container').innerHTML = resultSlidesr
     setSlider()
