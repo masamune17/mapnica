@@ -63,19 +63,22 @@
   } 
 
   #search-btn-check:checked ~ .search-items-container{
+    visibility: visible;
     z-index: 1;
     opacity: 1;    
+    height: 40%;
     right: 0;
     top: 64px;
     transform: translate(0);
   }
 
   .search-items-container{
+    visibility: hidden;
     z-index: -10;
     font-size: 1px;
     position: absolute;
     width: 400%;
-    height: 40%;
+    height: 0;
     right: 400%;
     top: 64px;
     opacity: 0;
@@ -141,6 +144,7 @@
   }
 
   .main-explain-item-container{
+    visibility: hidden;
     z-index: -1;
     position: absolute;
     width: 100%;
@@ -152,6 +156,7 @@
   }
 
   .fadein-after{
+    visibility: visible;
     z-index: 1;
     opacity: 1;
     transform: translate(0);

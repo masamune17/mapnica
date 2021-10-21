@@ -117,6 +117,7 @@ div.main-container{
 }
 
 .main-explain-item-container{
+  visibility: hidden;
   z-index: 1;
   position: absolute;
 	width: 25%;
@@ -128,6 +129,7 @@ div.main-container{
 }
 
 .fadein-after{
+  visibility: visible;
   opacity: 1;
   transform: translate(0);
 }
