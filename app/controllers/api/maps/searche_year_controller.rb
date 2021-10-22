@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::Maps::SearcheYearController < Api::BaseController
   def index
     searche_year = params[:era].to_i

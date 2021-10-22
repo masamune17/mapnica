@@ -3,12 +3,7 @@ const clickColor = 'blue'
 const markers = []
 const input = document.getElementById('search-box')
 const wordValue = 100
-// const markerData = JSON.parse(document.querySelector('#marker-data').dataset.position)
 let markerData, searchResults
-
-// const url = '/api/maps/searche_year'
-// const url = '/api/maps/searche_word'
-// XMLHttpRequestオブジェクトの作成
 
 let map, selectedMarker
 let inputElem = document.getElementById('era')
@@ -203,7 +198,7 @@ function searchEra (era) {
   const url = '/api/maps/searche_year'
   const data = { era: era }
   const queryParams = new URLSearchParams(data)
-  return fetch(`${url}?` + queryParams)
+  return fetch(`${url}?` + queryParams) // eslint-disable-line
     .then(response => response.json())
 }
 
@@ -211,6 +206,6 @@ function searchKeyword (keyword) {
   const url = '/api/maps/searche_word'
   const data = { keyword: keyword }
   const queryParams = new URLSearchParams(data)
-  return fetch(`${url}?` + queryParams)
+  return fetch(`${url}?` + queryParams) // eslint-disable-line
     .then(response => response.json())
 }
