@@ -3,7 +3,13 @@ const clickColor = 'blue'
 const markers = []
 const input = document.getElementById('search-box')
 const wordValue = 100
-const markerData = JSON.parse(document.querySelector('#marker-data').dataset.position)
+// const markerData = JSON.parse(document.querySelector('#marker-data').dataset.position)
+let markerData
+
+// const url = '/api/maps/searche_year'
+// const url = '/api/maps/searche_word'
+// XMLHttpRequestオブジェクトの作成
+
 let map, selectedMarker
 let inputElem = document.getElementById('era')
 let currentValueElem = document.getElementById('current-value')
@@ -13,7 +19,8 @@ input.addEventListener('input', updateResult)
 const setCurrentValue = (val) => {
   currentValueElem.innerText = val
   const era = Number(val)
-  showMarker(era)
+  // showMarker(era)
+  searchEra(era)
 }
 
 const rangeOnChange = (e) => {
@@ -181,4 +188,17 @@ function restoreColors (selectMarker) {
 window.onload = function () {
   initMap()
   setCurrentValue(inputElem.value)
+}
+
+function searchEra (era) {
+  const url = '/api/maps/searche_year'
+  const data = { era: era }
+  const queryParams = new URLSearchParams(data)
+  fetch(`${url}?` + queryParams)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data[0])
+      markerData = data
+      showMarker(era)
+    })
 }
