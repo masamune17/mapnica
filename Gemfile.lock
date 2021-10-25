@@ -192,8 +192,6 @@ GEM
     rubocop-fjord (0.1.5)
       rubocop (>= 1.0)
       rubocop-performance
-    rubocop-minitest (0.15.2)
-      rubocop (>= 0.90, < 2.0)
     rubocop-performance (1.11.5)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
@@ -201,6 +199,8 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
+    rubocop-rspec (2.5.0)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
@@ -270,11 +270,9 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.1)
   rspec-rails
-  rubocop
   rubocop-fjord
-  rubocop-minitest
-  rubocop-performance
   rubocop-rails
+  rubocop-rspec
   sass-rails (>= 6)
   selenium-webdriver
   spring

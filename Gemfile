@@ -46,11 +46,9 @@ group :development do
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
   gem 'rubocop-fjord', require: false
-  gem 'rubocop-minitest', require: false
-  gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'spring'
 end
 
