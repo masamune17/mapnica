@@ -3,10 +3,10 @@
 require 'rails_helper'
 RSpec.describe 'Api::Maps::SearcheYear', type: :request do
   before do
-    @map1 = create(:one)
-    @map2 = create(:two)
-    @map3 = create(:three)
-    @map4 = create(:four)
+    create(:one)
+    create(:two)
+    create(:three)
+    create(:four)
   end
   it '特定の年代のデータを取得する' do
     era = 1000

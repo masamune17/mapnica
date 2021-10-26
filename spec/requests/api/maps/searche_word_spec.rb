@@ -3,10 +3,10 @@
 require 'rails_helper'
 RSpec.describe 'Api::Maps::SearcheWord', type: :request do
   before do
-    @map1 = create(:one)
-    @map2 = create(:two)
-    @map3 = create(:three)
-    @map4 = create(:four)
+    create(:one)
+    create(:two)
+    create(:three)
+    create(:four)
   end
   it 'キーワドに合致したデータを取得する' do
     keyword = 'スタンフォード・ブリッジの戦い'
