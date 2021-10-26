@@ -10,8 +10,9 @@ RSpec.describe 'Api::Maps::SearcheYear', type: :request do
   end
   it '特定の年代のデータを取得する' do
     era = 1000
+    query = { era: era }.to_query
     uri = '/api/maps/searche_year'
-    get "#{uri}?era=#{era}"
+    get "#{uri}?#{query}"
     json = JSON.parse(response.body)
     expect(response.status).to eq(200)
     expect(json.length).to eq(2)
