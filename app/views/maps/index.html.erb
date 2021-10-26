@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<body>  
+<body>
   <header>
     <div class="title-container">
       <h1 class="title">Mapnica</h1> 
@@ -8,16 +8,16 @@
         <div class="slider-container" id="slider-container">
           <p class="era"><span id="current-value"></span> Year</p>
           <input type="range" id="era" min="-400" max="2000" step="100" value="1000">
-        </div>              
+        </div>
       </div>
-        <div class="search-container">          
+        <div class="search-container">
           <label for="search-btn-check" class="search-btn"><span class="magnifying_glass"></span></label>
           <input type="checkbox" class="search-btn-check" id="search-btn-check">
-          <div class="search-items-container">          
+          <div class="search-items-container">
             <div id="search-items" class="search-items">
               <input type="search" id="search-box" class="search-box" placeholder="キーワードを入力">
-            </div> 
-          </div>        
+            </div>
+          </div>
       </div>
   </header>
     <div class="main-container">
@@ -39,8 +39,8 @@
       </div>
       <div class="map-container">
         <div id="map"></div>
-        <div id="marker-data" data-position=<%= @all_history_position %> ></div>
-      </div>  
-    </div>  
-  <%= javascript_pack_tag "application"%>
+        <div id="marker-data" data-position=<%= @all_history_position %>></div>
+      </div>
+    </div>
+  <%= javascript_pack_tag "application" %>
 </body>
