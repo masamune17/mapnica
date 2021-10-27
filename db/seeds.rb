@@ -16,5 +16,5 @@ if File.exist?(csv_file.to_s)
     )
   end
 else
-  ActiveRecord::FixtureSet.create_fixtures 'test/fixtures', 'histories'
+  ActiveRecord::FixtureSet.create_fixtures 'db/fixtures', 'histories'
 end
