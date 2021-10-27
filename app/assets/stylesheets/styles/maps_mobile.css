@@ -62,6 +62,10 @@
     padding: auto;
   } 
 
+  label.search-btn:active{
+    opacity: 0.7;
+  }
+
   #search-btn-check:checked ~ .search-items-container{
     visibility: visible;
     z-index: 1;

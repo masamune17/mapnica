@@ -6,8 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks': 'reload' %>
-    <%= stylesheet_link_tag 'application_mobile', media: 'all', 'data-turbolinks': 'reload' %>
-    <%= stylesheet_link_tag 'reset', media: 'all', 'data-turbolinks': 'reload' %>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>"></script>
     <%= favicon_link_tag '/favicon.ico' %>
   </head>
