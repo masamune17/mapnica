@@ -10,7 +10,8 @@
     background-color: #25282F;  
   }
 
-  h1.title{
+  a.title{
+    color: white;
     box-sizing:border-box;
     height: 100%;
     width: 10%;

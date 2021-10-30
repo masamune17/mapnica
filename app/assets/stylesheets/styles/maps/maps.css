@@ -21,11 +21,21 @@ div.title-container{
   width: 10%;
 }
 
-h1.title{
+a.title{
+  color: white;
+  text-decoration:none;
   box-sizing:border-box;  
   font-size: 24px;
   font-weight: bold;
   margin: 10px;
+}
+
+a.title:hover{
+  opacity: 0.7;
+}
+
+span.mgr-10{
+  margin-left: 10px;
 }
 
 div.slider-items-container{

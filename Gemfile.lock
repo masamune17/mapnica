@@ -295,11 +295,14 @@ DEPENDENCIES
 =======
   dotenv-rails
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 132cf72 (erb_lint 導入)
   factory_bot_rails
 =======
+=======
+>>>>>>> c61f1f2 (welcome ページのfooterのデザインを修正)
   erb_lint
->>>>>>> c482294 (erb_lint 導入)
+  factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg

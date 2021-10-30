@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+<head>
+  <%= stylesheet_link_tag 'maps', media: 'all', 'data-turbolinks': 'reload' %>
+</head>
 <body>
   <header>
     <div class="title-container">
-      <h1 class="title">Mapnica</h1> 
-    </div>      
+      <a href="/welcome" class="title">History<br><span class="mgr-10">Map</span></a>
+    </div>
       <div class="slider-items-container">
         <div class="slider-container" id="slider-container">
           <p class="era"><span id="current-value"></span> Year</p>
