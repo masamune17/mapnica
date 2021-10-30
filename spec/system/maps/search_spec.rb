@@ -6,9 +6,6 @@ RSpec.describe 'Search', type: :system do
   describe 'Search word' do
     before do
       create(:one)
-      create(:two)
-      create(:three)
-      create(:four)
       visit root_path
       fill_in 'search-box', with: 'スタンフォード'
     end
