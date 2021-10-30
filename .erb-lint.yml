@@ -1,0 +1,3 @@
+linters:
+  Rubocop:
+    enabled: false
