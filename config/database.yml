@@ -8,6 +8,9 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: unicode
+  username: postgres
+  password: postgres
+  host: localhost
 
 development:
   <<: *default
@@ -22,7 +25,9 @@ test:
 
 production:
   <<: *default
-  host:     <%= ENV["DB_HOST"] %>
-  database: <%= ENV["DB_NAME"] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  database: history_production
+  username: <%= Rails.application.credentials.db[:user_name] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:endpoint] %>
+
+  
