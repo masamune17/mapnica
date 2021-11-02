@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: history_development
+  database: mapnica_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,7 +25,7 @@ test:
 
 production:
   <<: *default
-  database: history_production
+  database: mapnica_production
   username: <%= Rails.application.credentials.db[:user_name] %>
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:endpoint] %>

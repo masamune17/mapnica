@@ -1,5 +1,5 @@
 {
-  "name": "history-map-app",
+  "name": "mapnica",
   "private": true,
   "scripts": {
     "lint": "yarn run eslint --ext .vue --ext .js app/javascript"
