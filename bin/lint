@@ -2,3 +2,4 @@
 
 bundle exec rubocop -a
 bin/yarn lint --fix
+erblint . -a .erb-lint.yml
