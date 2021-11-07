@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::Maps::SearcheYearController < Api::BaseController
+class API::Maps::SearcheYearController < API::BaseController
   def index
     searche_year = params[:era].to_i
     @all_history_position = History.where(accrual_date: "#{searche_year}-01-01"..."#{searche_year + 100}-12-31")
