@@ -34,8 +34,8 @@ function initMap () {
 }
 
 async function showMarker (era) {
-  const searcheEraApi = await searchEra(era)
-  markerData = searcheEraApi
+  const searcheEraAPI = await searchEra(era)
+  markerData = searcheEraAPI
   if (markers !== []) {
     for (let i = 0; i < markers.length; i++) {
       markers[i].setMap(null)
@@ -148,16 +148,16 @@ function clickResult (arrayNum) {
     setSlider()
     showMarker(resultEra)
     showMarkerInfo(searchResults[arrayNum])
-    const searcheEraApi = await searchEra(resultEra)
+    const searcheEraAPI = await searchEra(resultEra)
     let makerNum
-    for (let i = 0; i < searcheEraApi.length; i++) {
-      if (searcheEraApi[i].id === searchResults[arrayNum].id) {
+    for (let i = 0; i < searcheEraAPI.length; i++) {
+      if (searcheEraAPI[i].id === searchResults[arrayNum].id) {
         makerNum = i
       }
     }
     console.log(makerNum)
     console.log(searchResults[arrayNum])
-    console.log(searcheEraApi[makerNum])
+    console.log(searcheEraAPI[makerNum])
     changeColor(makerNum, clickColor)
     map.panTo(new google.maps.LatLng(searchResults[arrayNum].latitude, searchResults[arrayNum].longitude)) // eslint-disable-line
   }, false)

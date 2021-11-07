@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Api::Maps::SearcheWord', type: :request do
+RSpec.describe 'API::Maps::SearcheWord', type: :request do
   before do
     create(:one)
     create(:two)
