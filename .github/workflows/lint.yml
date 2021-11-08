@@ -9,13 +9,17 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['3.0']
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.0
+        ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
     - name: Cache node modules
