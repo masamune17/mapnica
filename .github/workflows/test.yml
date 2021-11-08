@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['3.0']
 
     env:
       RAILS_ENV: test
@@ -31,10 +34,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.0
+        ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
     - name: yarn install
