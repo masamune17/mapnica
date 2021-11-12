@@ -73,12 +73,12 @@ function showMarkerInfo (historyData) {
 function updateResult (input) {
   const resultsElement = '<div id="search-results" class="search-results"></div>'
   const keyword = input.target.value
-  const characterLimit = 2
+  const minimumCharacterLimit = 2
   const searchResultElement = document.getElementById('search-results')
   if (searchResultElement !== null) {
     searchResultElement.remove()
   }
-  if (characterLimit <= keyword.length) {
+  if (minimumCharacterLimit <= keyword.length) {
     document.getElementById('search-items').insertAdjacentHTML('afterend', resultsElement)
     outputResult(keyword)
   }
