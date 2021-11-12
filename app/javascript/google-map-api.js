@@ -73,10 +73,12 @@ function showMarkerInfo (historyData) {
 function updateResult (input) {
   const resultsElement = '<div id="search-results" class="search-results"></div>'
   const keyword = input.target.value
-  if (keyword === '') {
-    document.getElementById('search-results').remove()
-  } else {
-    if (document.getElementById('search-results') !== null) document.getElementById('search-results').remove()
+  const minimumCharacterLimit = 2
+  const searchResultElement = document.getElementById('search-results')
+  if (searchResultElement !== null) {
+    searchResultElement.remove()
+  }
+  if (minimumCharacterLimit <= keyword.length) {
     document.getElementById('search-items').insertAdjacentHTML('afterend', resultsElement)
     outputResult(keyword)
   }
@@ -85,7 +87,6 @@ function updateResult (input) {
 async function outputResult (keyword) {
   const searcheWordApi = await searchKeyword(keyword)
   searchResults = searcheWordApi
-  console.log(searchResults)
   let results = ''
   const resultsArray = []
   for (let i = 0; i < searchResults.length; i++) {
@@ -155,9 +156,6 @@ function clickResult (arrayNum) {
         makerNum = i
       }
     }
-    console.log(makerNum)
-    console.log(searchResults[arrayNum])
-    console.log(searcheEraAPI[makerNum])
     changeColor(makerNum, clickColor)
     map.panTo(new google.maps.LatLng(searchResults[arrayNum].latitude, searchResults[arrayNum].longitude)) // eslint-disable-line
   }, false)
