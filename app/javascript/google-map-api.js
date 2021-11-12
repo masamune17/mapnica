@@ -68,6 +68,9 @@ function showMarkerInfo (historyData) {
   document.getElementById('accrual_date').innerHTML = historyData.accrual_date
   document.getElementById('label').innerHTML = historyData.label.replace(/　/g, ' ') // eslint-disable-line
   document.getElementById('abstract').innerHTML = historyData.abstract.replace(/　/g, ' ') // eslint-disable-line
+  document.getElementById('close-explain-button').addEventListener('click', function () {
+    document.getElementById('main-explain-item-container').classList.remove('fadein-after')
+  })
 }
 
 function updateResult (input) {
