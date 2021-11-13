@@ -65,16 +65,16 @@ function markerEvent (i) {
 
 function showMarkerInfo (historyData) {
   const explainElement = document.getElementById('main-explain-item-container')
-  if (explainElement.classList.contains('fadeout')) {
-    explainElement.classList.remove('fadeout')
+  if (explainElement.classList.contains('fadeout-explain')) {
+    explainElement.classList.remove('fadeout-explain')
   }
-  explainElement.classList.add('fadein')
+  explainElement.classList.add('fadein-explain')
   document.getElementById('accrual_date').innerHTML = historyData.accrual_date
   document.getElementById('label').innerHTML = historyData.label.replace(/　/g, ' ') // eslint-disable-line
   document.getElementById('abstract').innerHTML = historyData.abstract.replace(/　/g, ' ') // eslint-disable-line
   document.getElementById('close-explain-button').addEventListener('click', function () {
-    explainElement.classList.add('fadeout')
-    explainElement.classList.remove('fadein')
+    explainElement.classList.add('fadeout-explain')
+    explainElement.classList.remove('fadein-explain')
   })
 }
 
@@ -195,8 +195,25 @@ function restoreColors (selectMarker) {
     selectedMarker.setIcon(pinSymbol(originColor))
   }
 }
+
+function searchButtonAction () {
+  const searchItemElement = document.getElementById('search-items-container')
+  document.getElementById('search-btn').addEventListener('click', function () {
+    if (searchItemElement.classList.length === 1) {
+      searchItemElement.classList.add('fadein-search-items')
+    } else if (searchItemElement.classList.contains('fadeout-search-items')) {
+      searchItemElement.classList.add('fadein-search-items')
+      searchItemElement.classList.remove('fadeout-search-items')
+    } else {
+      searchItemElement.classList.add('fadeout-search-items')
+      searchItemElement.classList.remove('fadein-search-items')
+    }
+  })
+}
+
 window.onload = function () {
   initMap()
+  searchButtonAction()
   setCurrentValue(inputElem.value)
 }
 

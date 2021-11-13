@@ -139,12 +139,12 @@ div.main-container{
   background-color:#ffffff;
 }
 
-.fadein{
-  animation: fadein 1s;
+.fadein-explain{
+  animation: fadein-explain 1s;
   animation-fill-mode: forwards;
 }
 
-@keyframes fadein {
+@keyframes fadein-explain {
   0% {    
     transform: translateX(-100%);
     opacity: 0;
@@ -156,11 +156,11 @@ div.main-container{
   }
 }
 
-.fadeout{
-  animation: fadeout 1s;
+.fadeout-explain{
+  animation: fadeout-explain 1s;
 }
 
-@keyframes fadeout {
+@keyframes fadeout-explain {
   0% {    
     transform: translateX(0);
     opacity: 1;
@@ -270,10 +270,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 8px;
 }
 
-input.search-btn-check{
-  display: none;
-}
-label.search-btn{
+#search-btn{
   display: none;
 }
 .magnifying-glass {
