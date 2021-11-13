@@ -136,15 +136,41 @@ div.main-container{
 	width: 25%;
   height: 90%; 
   opacity: 0;
-  transition:opacity 1s,transform 1s;
-  transform:translateX(-25%);
   background-color:#ffffff;
 }
 
-.fadein-after{
-  visibility: visible;
-  opacity: 1;
-  transform: translate(0);
+.fadein{
+  animation: fadein 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {    
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);    
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.fadeout{
+  animation: fadeout 1s;
+}
+
+@keyframes fadeout {
+  0% {    
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(-100%);    
+    opacity: 0;
+    visibility: visible;
+  }
 }
 
 div.main-explain-items{
