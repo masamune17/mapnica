@@ -1,8 +1,11 @@
 @media screen and (max-width: 1024px) {
+  :root {
+    --header-height: 64px;
+  }
 
   header{
     width: 100%;
-    height: 64px;
+    height: var(--header-height);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,11 +43,7 @@
     font-family: sans-serif;
   }
 
-  input.search-btn-check{
-    display: none;
-  }
-
-  label.search-btn{
+  #search-btn{
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -63,34 +62,63 @@
     padding: auto;
   } 
 
-  label.search-btn:active{
+  #search-btn:active{
     opacity: 0.7;
-  }
-
-  #search-btn-check:checked ~ .search-items-container{
-    visibility: visible;
-    z-index: 1;
-    opacity: 1;    
-    height: 40%;
-    right: 0;
-    top: 64px;
-    transform: translate(0);
   }
 
   .search-items-container{
     visibility: hidden;
+    right: 400%;
+    top: 64px;
     z-index: -10;
     font-size: 16px;
     position: absolute;
-    width: 400%;
-    height: 0;
-    right: 400%;
-    top: 64px;
+    width: 0px;
+    height: 0px;
     opacity: 0;
-    transition:opacity 0.5s,transform 0.5s;
-    transform:translateX(100%);
     background:#eee;
     margin: 1px;
+  }
+
+  .fadein-search-items{    
+    width: 400%;
+    height: 40%;
+    animation: fadein-search-items 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein-search-items {
+    0% {            
+      right: -400%;
+      opacity: 0;
+    }
+    100% {
+      right: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .fadeout-search-items{
+    animation: fadeout-search-items 1s;
+  }
+  
+  @keyframes fadeout-search-items {
+    0% {          
+      right: 0;
+      width: 400%;
+      height: 40%;   
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      right: 0;
+      transform: translateX(100%);
+      width: 400%;
+      height: 40%; 
+      opacity: 0;      
+      visibility: visible;
+    }
   }
 
   div.search-results{
@@ -119,6 +147,10 @@
   p.search-result{
     font-size: 16px;
     color: #555;
+  }
+
+  div.main-container{
+    height: calc(100% - var(--header-height));
   }
 
   div.accrual-date-container,
@@ -152,27 +184,16 @@
     width: 100%;
     height: 0%;
     opacity: 0;
-    /* transition:opacity 1s,transform 1s;
-    transform:translateY(100%); */
     background-color:#ffffff;
   }
 
-  /* .fadein-after{
-    visibility: visible;
-    height: 80%;
-    z-index: 1;
-    opacity: 1;
-    transform: translate(0);
-    top: 70%;
-  } */
-
-  .fadein{    
+  .fadein-explain{
     height: 80%; 
-    animation: fadein 1s;
+    animation: fadein-explain 1s;
     animation-fill-mode: forwards;
   }
   
-  @keyframes fadein {
+  @keyframes fadein-explain {
     0% {      
       transform: translateY(100%);
       opacity: 0;
@@ -183,14 +204,14 @@
     }
   }
   
-  .fadeout{
-    animation: fadeout 1s;
+  .fadeout-explain{
+    animation: fadeout-explain 1s;
   }
   
-  @keyframes fadeout {
+  @keyframes fadeout-explain {
     0% {    
       opacity: 1;
-      height: 80%;      
+      height: 80%;
       visibility: visible;
     }
     100% {

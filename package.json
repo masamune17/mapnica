@@ -2,7 +2,7 @@
   "name": "mapnica",
   "private": true,
   "scripts": {
-    "lint": "yarn run eslint --ext .vue --ext .js app/javascript"
+    "lint": "yarn run eslint --fix 'app/javascript/**/*.{js,vue}'"
   },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
