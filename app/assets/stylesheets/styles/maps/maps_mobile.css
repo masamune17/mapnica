@@ -135,35 +135,69 @@
   }
 
   p.explain-text{
-    font-size: 16px;
     border-bottom: solid 1px #555;
   }
   
   #accrual_date,
   #label,
   #abstract {
-    font-size: 16px;
     height: 90%;
   }
 
   .main-explain-item-container{
+    top: 70%;
     visibility: hidden;
-    z-index: -1;
+    z-index: 1;
     position: absolute;
     width: 100%;
     height: 0%;
     opacity: 0;
-    transition:opacity 1s,transform 1s;
-    transform:translateY(100%);
+    /* transition:opacity 1s,transform 1s;
+    transform:translateY(100%); */
     background-color:#ffffff;
   }
 
-  .fadein-after{
+  /* .fadein-after{
     visibility: visible;
     height: 80%;
     z-index: 1;
     opacity: 1;
     transform: translate(0);
     top: 70%;
+  } */
+
+  .fadein{    
+    height: 80%; 
+    animation: fadein 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein {
+    0% {      
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .fadeout{
+    animation: fadeout 1s;
+  }
+  
+  @keyframes fadeout {
+    0% {    
+      opacity: 1;
+      height: 80%;      
+      visibility: visible;
+    }
+    100% {
+      transform: translateY(50%);
+      height: 80%;      
+      opacity: 0;      
+      visibility: visible;
+    }
   }
 }

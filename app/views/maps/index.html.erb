@@ -14,7 +14,7 @@
         </div>
       </div>
         <div class="search-container">
-          <label for="search-btn-check" class="search-btn"><span class="magnifying_glass"></span></label>
+          <label for="search-btn-check" class="search-btn"><span class="magnifying-glass"></span></label>
           <input type="checkbox" class="search-btn-check" id="search-btn-check">
           <div class="search-items-container">
             <div id="search-items" class="search-items">
@@ -27,6 +27,9 @@
       <div class="main-explain-item-container" id="main-explain-item-container">
         <div class="main-explain-items">
           <div class="accrual-date-container">
+            <div id="close-explain-button">
+              <span class="batsu"></span>
+            </div>
             <p class="explain-text">発生日</p>
             <p id="accrual_date"></p>
           </div>
@@ -42,7 +45,6 @@
       </div>
       <div class="map-container">
         <div id="map"></div>
-        <div id="marker-data" data-position=<%= @all_history_position %>></div>
       </div>
     </div>
   <%= javascript_pack_tag "application" %>

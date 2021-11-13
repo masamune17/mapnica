@@ -24,7 +24,7 @@ div.title-container{
 a.title{
   color: white;
   text-decoration:none;
-  box-sizing:border-box;  
+  box-sizing:border-box;
   font-size: 24px;
   font-weight: bold;
   margin: 10px;
@@ -136,19 +136,63 @@ div.main-container{
 	width: 25%;
   height: 90%; 
   opacity: 0;
-  transition:opacity 1s,transform 1s;
-  transform:translateX(-25%);
   background-color:#ffffff;
 }
 
-.fadein-after{
-  visibility: visible;
-  opacity: 1;
-  transform: translate(0);
+.fadein{
+  animation: fadein 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {    
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);    
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.fadeout{
+  animation: fadeout 1s;
+}
+
+@keyframes fadeout {
+  0% {    
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(-100%);    
+    opacity: 0;
+    visibility: visible;
+  }
 }
 
 div.main-explain-items{
   height: 100%;  
+}
+
+div.accrual-date-container{
+  position: relative;
+}
+
+div#close-explain-button{
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 24px;
+  width: 24px;
+}
+
+div#close-explain-button:hover{
+  background-color: rgba(0,0,0,0.3);
+  opacity: 0.7;
 }
 
 div.accrual-date-container,
@@ -166,20 +210,22 @@ div.abstract-container{
 
 p.explain-text{
   border-bottom: solid 1px #555;
+  font-size: 16px;
 }
 
 #accrual_date,
 #label,
 #abstract {
+  font-size: 16px;
   height: 90%;
   font-weight: bold;  
+  box-sizing:border-box;
 }
 
 #label{
   overflow-x: scroll;
 }
 #abstract {
-  height: 90%;
   font-weight: bold;
   overflow-y: scroll;
 }
@@ -230,7 +276,7 @@ input.search-btn-check{
 label.search-btn{
   display: none;
 }
-.magnifying_glass {
+.magnifying-glass {
   display: inline-block;
   position: relative;
   width: 1em;
@@ -238,7 +284,7 @@ label.search-btn{
   color: white;
   font-size: 16px;
 }
-.magnifying_glass::before {
+.magnifying-glass::before {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -250,7 +296,7 @@ label.search-btn{
   background-color: #25282F;  
   content: "";
 }
-.magnifying_glass::after {
+.magnifying-glass::after {
   position: absolute;
   top: 0px;
   left: 50%;
@@ -261,4 +307,29 @@ label.search-btn{
   box-sizing: border-box;
   background-color: currentColor;
   content: "";
+}
+
+.batsu {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+ 
+.batsu::before, .batsu::after { /* 共通設定 */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px; /* 棒の幅（太さ） */
+  height: 16px; /* 棒の高さ */
+  background: #333;
+}
+ 
+.batsu::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+ 
+.batsu::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
 }

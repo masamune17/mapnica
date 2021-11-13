@@ -64,10 +64,18 @@ function markerEvent (i) {
 }
 
 function showMarkerInfo (historyData) {
-  document.getElementById('main-explain-item-container').classList.add('fadein-after')
+  const explainElement = document.getElementById('main-explain-item-container')
+  if (explainElement.classList.contains('fadeout')) {
+    explainElement.classList.remove('fadeout')
+  }
+  explainElement.classList.add('fadein')
   document.getElementById('accrual_date').innerHTML = historyData.accrual_date
   document.getElementById('label').innerHTML = historyData.label.replace(/　/g, ' ') // eslint-disable-line
   document.getElementById('abstract').innerHTML = historyData.abstract.replace(/　/g, ' ') // eslint-disable-line
+  document.getElementById('close-explain-button').addEventListener('click', function () {
+    explainElement.classList.add('fadeout')
+    explainElement.classList.remove('fadein')
+  })
 }
 
 function updateResult (input) {
