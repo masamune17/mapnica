@@ -13,13 +13,23 @@
     background-color: #25282F;  
   }
 
-  a.title{
-    color: white;
-    box-sizing:border-box;
-    height: 100%;
-    width: 10%;
+  .title-container{
+    position: relative;
+  }
+
+  .title{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: 20px;
+    width: 80px;
+  }
+
+  
+  .mapnica{
+    font-family: trajan-pro-3, serif;
+    color: white;    
     font-size: 16px;
-    font-weight: bold;
   }
   
   div.slider-items-container{
