@@ -19,9 +19,9 @@
 
   .title{
     position: absolute;
-    top: 4px;
-    left: 4px;
-    height: 20px;
+    top: 0.25rem;
+    left: 0.25rem;
+    height: 2rem;
     width: 80px;
   }
 
@@ -230,5 +230,8 @@
       opacity: 0;      
       visibility: visible;
     }
+  }
+  input[type="range"] {
+    width: 100%;
   }
 }

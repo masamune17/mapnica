@@ -18,7 +18,7 @@ header{
 
 .title-container{
   height: 100%;
-  width: 10%;
+  width: 15%;
 }
 
 .title{
@@ -26,10 +26,10 @@ header{
   width: 100%;
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
-  align-items: center; /* 縦方向中央揃え */
-  -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
-  justify-content: center; /* 横方向中央揃え */
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .title:hover{
@@ -47,7 +47,7 @@ span.mgr-10{
 div.slider-items-container{
   box-sizing:border-box;
   height: 100%;
-  width: 70%;  
+  width: 65%;  
 }
 
 div.slider-container{
@@ -90,7 +90,6 @@ div.search-items{
 input.search-box{
   box-sizing: border-box;
   width: 100%;
-  border-radius:2px 0 0 2px;
   background:#eee;
 }
 
@@ -319,13 +318,13 @@ input[type="range"]::-webkit-slider-thumb {
   height: 24px;
 }
  
-.batsu::before, .batsu::after { /* 共通設定 */
+.batsu::before, .batsu::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3px; /* 棒の幅（太さ） */
-  height: 16px; /* 棒の高さ */
+  width: 3px;
+  height: 16px;
   background: #333;
 }
  
