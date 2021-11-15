@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       resources :searche_word, only: :index, defaults: { format: :json }
     end
   end
-  get "welcome", to: "welcome#index", as: "welcome"
+  get "about", to: "about#index", as: "about"
   resources :maps, only: [:index]
 end

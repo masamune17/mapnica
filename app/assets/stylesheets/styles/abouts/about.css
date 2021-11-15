@@ -1,0 +1,144 @@
+html,body{
+  padding:0;
+  margin:0;
+  height:100%;
+  width: 100%;
+}
+
+p{
+  font-family: YakuHanJPs_Narrow, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+}
+
+header{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  background-color: #25282F;
+}
+
+.title-container{
+  height: 100%;
+  width: 25%;
+}
+
+.title-logo{
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.title-logo:hover{
+  opacity: 0.7;
+}
+
+.logo{  
+  height: 100%;
+}
+
+span.mgr-10{
+  margin-left: 10px;
+}
+
+.main-container{
+  width: 100%;
+  height: 80%;  
+  text-align: center;
+}
+
+.main-container-items{
+  width: 100%;
+  text-align: center;
+}
+
+.about-text-title{
+  font-size: 36px !important;
+  padding: 6rem 1.5rem 1rem 1.5rem;
+}
+
+.about-text-contents{  
+  line-height: 1.6;
+  font-size: 18px !important;
+  padding: 0 1.5rem 3rem 1.5rem;
+}
+
+.use{
+  font-size: 36px !important;
+  padding: 0 1.5rem 1rem 1.5rem;
+}
+
+.title-logo-container{
+  background-color: #25282F;  
+}
+
+.about-logo-button{
+  height: 60px;
+  width: 200px;
+  margin: 0 auto;
+  background-color: #25282F;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.about-logo-button:hover{
+  opacity: 0.7;
+}
+
+.about-logo-button a{
+  display: block;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.about-logo-button img{
+  width: 90%;
+}
+
+footer{
+  padding-top: 5px;
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  background-color: #25282F;  
+}
+
+.footer-icon{  
+  box-sizing: border-box;
+  height: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon{
+  margin: 0 0.5em;
+  height: 2rem;
+  width: 2rem; 
+}
+
+.fotter-text{
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fotter-text p{
+  height: 80%;
+  display: block;
+  color: white;
+}
