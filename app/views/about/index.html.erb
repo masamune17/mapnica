@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <head>
+  <% provide(:title, "About") %>
   <%= stylesheet_link_tag 'abouts', media: 'all', 'data-turbolinks': 'reload' %>
 </head>
 <body>
-  <header>
-    <div class="title-container">
-      <a href="/" class="title-logo">
-        <img class="logo" src="/icons/mapnica_logo.png">
-      </a>
-    </div>
-  </header>
+  <%= render 'header' %>
   <div class="main-container">
     <div class="main-container-items">
       <p class="about-text-title">
@@ -30,17 +25,5 @@
       </div>
     </div>
   </div>
-  <footer class="footer">
-    <div class="footer-icon">
-      <a href="https://github.com/masamune17/history_map">
-        <img class="icon" src="/icons/github.png">
-      </a>
-      <a href="https://twitter.com/Masamune_catcat">
-        <img class="icon" src="/icons/twitter.png">
-      </a>
-    </div>
-    <div class="fotter-text">
-      <p>©2021　masamune17</p>
-    </div>
-  </footer>
+  <%= render 'footer' %>
 </body>
