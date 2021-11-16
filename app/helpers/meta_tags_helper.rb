@@ -9,6 +9,7 @@ module MetaTagsHelper
       charset: 'utf-8',
       description: 'Mapnicaは歴史の出来事を地図上に表示するサービスです',
       viewport: 'width=device-width, initial-scale=1.0',
+      keywords: '歴史, 地図, history, map',
       og: {
         title: :title,
         type: 'website',
