@@ -58,18 +58,18 @@ span.mgr-10{
 }
 
 .about-text-title{
-  font-size: 36px !important;
+  font-size: 2rem !important;
   padding: 6rem 1.5rem 1rem 1.5rem;
 }
 
 .about-text-contents{  
   line-height: 1.6;
-  font-size: 18px !important;
+  font-size: 1.2rem !important;
   padding: 0 1.5rem 3rem 1.5rem;
 }
 
 .use{
-  font-size: 36px !important;
+  font-size: 2rem !important;
   padding: 0 1.5rem 1rem 1.5rem;
 }
 
@@ -125,7 +125,7 @@ footer{
 }
 
 .icon{
-  margin: 0 0.5em;
+  margin: 0 0.5rem;
   height: 2rem;
   width: 2rem; 
 }
@@ -138,6 +138,14 @@ footer{
 }
 
 .fotter-text p{
+  height: 80%;
+  display: block;
+  color: white;
+  margin-right: 1rem;
+}
+
+.fotter-text a{
+  text-decoration: none;
   height: 80%;
   display: block;
   color: white;

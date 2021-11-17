@@ -1,0 +1,39 @@
+.tos-main{
+width: 100%;
+display: flex;            /* Flexboxを指定 */
+justify-content: center;  /* 水平方向の中央寄せ */
+}
+
+.tos-main-container{
+  height: auto;
+  width: 45rem;
+  padding: 2rem;
+}
+
+.tos-main-container h1{
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 2rem 2rem 2rem;
+  font-weight: bold;
+}
+
+.tos-main-container h2{
+  border-bottom:1px solid #8b8b8b;
+  width: 100%;
+  font-size: 1.5rem;
+  padding-top:1rem;
+  margin-bottom:0.5rem;
+  font-weight: bold;
+}
+
+.tos-main-container p{
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tos-main-container ol{
+  font-size: 1rem;
+  list-style: decimal;  
+  padding-left: 2rem;
+  padding-bottom:0.5rem;
+}

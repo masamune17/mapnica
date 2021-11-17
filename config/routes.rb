@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
   end
   get "about", to: "about#index", as: "about"
+  get 'tos', to: 'about#tos', as: 'tos'
   resources :maps, only: [:index]
 end
