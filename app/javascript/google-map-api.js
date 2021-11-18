@@ -3,6 +3,14 @@ const clickColor = 'blue'
 const markers = []
 const input = document.getElementById('search-box')
 const wordValue = 100
+const mapOptions = {
+  center: {
+    lat: 41,
+    lng: 12
+  },
+  zoom: 4,
+  disableDefaultUI: true
+}
 let markerData, searchResults
 
 let map, selectedMarker
@@ -24,13 +32,7 @@ const rangeOnChange = (e) => {
 inputElem.addEventListener('input', rangeOnChange)
 
 function initMap () {
-  map = new google.maps.Map(document.getElementById('map'), { // eslint-disable-line
-    center: {
-      lat: 41,
-      lng: 12
-    },
-    zoom: 4
-  })
+  map = new google.maps.Map(document.getElementById('map'), mapOptions) // eslint-disable-line
 }
 
 async function showMarker (era) {
