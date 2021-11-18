@@ -44,13 +44,13 @@ span.mgr-10{
   margin-left: 10px;
 }
 
-div.slider-items-container{
+.slider-items-container{
   box-sizing:border-box;
   height: 100%;
   width: 65%;  
 }
 
-div.slider-container{
+.slider-container{
   box-sizing: border-box;
   text-align: center;
   padding: 10px;
@@ -58,14 +58,14 @@ div.slider-container{
   width: 100%;
 }
 
-p.era{
+.era{
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
   font-family: sans-serif;
 }
 
-div.search-container{
+.search-container{
   box-sizing: border-box;
   width: 20%;
   height: 100%;
@@ -82,7 +82,7 @@ div.search-container{
   background:#eee;
 }
 
-div.search-items{
+.search-items{
   width: 100%;
   height: 100%;
 }
@@ -93,7 +93,7 @@ input.search-box{
   background:#eee;
 }
 
-div.search-results{
+.search-results{
   padding: 10px;
   width: 90%;
   max-height: 400px;
@@ -104,17 +104,17 @@ div.search-results{
   z-index: 1;
 }
 
-div.search-result{
+dl.search-result{
   cursor: pointer;
   border-bottom: solid 1px #888;
   margin-bottom: 10px;
 }
 
-p.search-result{
+dt.search-result{
   color: #555;
 }
 
-div.search-result:hover,p.search-result :hover{
+.search-result:hover,.search-result :hover{
   opacity: 0.6 ;
 }
 
@@ -128,7 +128,7 @@ small.search-result{
   border-bottom: solid 1px #888;
 }
 
-div.main-container{
+.main-container{
   width: 100%;
   height: 90%;
   padding: 0px;
@@ -178,11 +178,11 @@ div.main-container{
   }
 }
 
-div.main-explain-items{
+.main-explain-items{
   height: 100%;  
 }
 
-div.accrual-date-container{
+.accrual-date-container{
   position: relative;
 }
 
@@ -195,25 +195,25 @@ div#close-explain-button{
   width: 1.5rem;
 }
 
-div#close-explain-button:hover{
+#close-explain-button:hover{
   background-color: rgba(0,0,0,0.3);
   opacity: 0.7;
 }
 
-div.accrual-date-container,
-div.label-container{
+.accrual-date-container,
+.label-container{
   box-sizing:border-box;
   height: 10%;
   padding: 10px;
 }
 
-div.abstract-container{
+.abstract-container{
   box-sizing:border-box;
   height: 80%;
   padding: 10px;
 }
 
-p.explain-text{
+.explain-text{
   border-bottom: solid 1px #555;
   font-size: 1rem;
 }
@@ -235,7 +235,7 @@ p.explain-text{
   overflow-y: auto;
 }
 
-div.map-container{
+.map-container{
 	width: 100%;
   height: 100%;
 }

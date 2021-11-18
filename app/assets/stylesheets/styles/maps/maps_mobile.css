@@ -32,13 +32,13 @@
     font-size: 1rem;
   }
   
-  div.slider-items-container{
+  .slider-items-container{
     box-sizing:border-box;
     height: 100%;
     width: 80%;  
   }
 
-  div.search-container{
+  .search-container{
     box-sizing: border-box;
     width: 10%;
     height: 100%;
@@ -46,7 +46,7 @@
     z-index: 10;
   }
 
-  p.era{
+  .era{
     color: white;
     font-size: 1rem;
     font-weight: 600;
@@ -131,7 +131,7 @@
     }
   }
 
-  div.search-results{
+  .search-results{
     padding: 10px;
     width: 90%;
     max-height: 300px;
@@ -154,29 +154,29 @@
     border-bottom: solid 1px #888;
   }
 
-  p.search-result{
+  .search-result{
     font-size: 1rem;
     color: #555;
   }
 
-  div.main-container{
+  .main-container{
     height: calc(100% - var(--header-height));
   }
 
-  div.accrual-date-container,
-  div.label-container{
+  .accrual-date-container,
+  .label-container{
     box-sizing:border-box;
     height: 10%;
     padding: 10px;
   }
 
-  div.abstract-container{
+  .abstract-container{
     box-sizing:border-box;
     height: 80%;
     padding: 10px;
   }
 
-  p.explain-text{
+  .explain-text{
     border-bottom: solid 1px #555;
   }
   
