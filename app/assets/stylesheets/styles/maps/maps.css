@@ -99,7 +99,7 @@ div.search-results{
   max-height: 400px;
   background:#eee;
   overflow-wrap: break-word;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
   z-index: 1;
 }
@@ -145,7 +145,7 @@ div.main-container{
 }
 
 .fadein-explain{
-  animation: fadein-explain 1s;
+  animation: fadein-explain 0.2s;
   animation-fill-mode: forwards;
 }
 
@@ -162,7 +162,7 @@ div.main-container{
 }
 
 .fadeout-explain{
-  animation: fadeout-explain 1s;
+  animation: fadeout-explain 0.2s;
 }
 
 @keyframes fadeout-explain {
@@ -228,11 +228,11 @@ p.explain-text{
 }
 
 #label{
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 #abstract {
   font-weight: bold;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 div.map-container{

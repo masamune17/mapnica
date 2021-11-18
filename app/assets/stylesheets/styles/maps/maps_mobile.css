@@ -93,7 +93,7 @@
   .fadein-search-items{    
     width: 400%;
     height: 40%;
-    animation: fadein-search-items 1s;
+    animation: fadein-search-items 0.2s;
     animation-fill-mode: forwards;
   }
   
@@ -110,7 +110,7 @@
   }
   
   .fadeout-search-items{
-    animation: fadeout-search-items 1s;
+    animation: fadeout-search-items 0.2s;
   }
   
   @keyframes fadeout-search-items {
@@ -137,7 +137,7 @@
     max-height: 300px;
     background:#eee;
     overflow-wrap: break-word;
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     z-index: 1;
   }
@@ -199,7 +199,7 @@
 
   .fadein-explain{
     height: 80%; 
-    animation: fadein-explain 1s;
+    animation: fadein-explain 0.2s;
     animation-fill-mode: forwards;
   }
   
@@ -215,7 +215,7 @@
   }
   
   .fadeout-explain{
-    animation: fadeout-explain 1s;
+    animation: fadeout-explain 0.2s;
   }
   
   @keyframes fadeout-explain {
