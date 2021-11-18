@@ -3,6 +3,14 @@ const clickColor = 'blue'
 const markers = []
 const input = document.getElementById('search-box')
 const wordValue = 100
+const mapOptions = {
+  center: {
+    lat: 41,
+    lng: 12
+  },
+  zoom: 4,
+  disableDefaultUI: true
+}
 let markerData, searchResults
 
 let map, selectedMarker
@@ -24,13 +32,7 @@ const rangeOnChange = (e) => {
 inputElem.addEventListener('input', rangeOnChange)
 
 function initMap () {
-  map = new google.maps.Map(document.getElementById('map'), { // eslint-disable-line
-    center: {
-      lat: 41,
-      lng: 12
-    },
-    zoom: 4
-  })
+  map = new google.maps.Map(document.getElementById('map'), mapOptions) // eslint-disable-line
 }
 
 async function showMarker (era) {
@@ -136,14 +138,14 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
   )
   let resultElement
   if (jugeLabel) {
-    resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
-    `<p class='search-result' >${matchWord}</p>` +
-    '</div>'
+    resultElement = `<dl class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
+    `<dt class='search-result' >${matchWord}</dt>` +
+    '</dl>'
   } else {
-    resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
+    resultElement = `<dl class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
     `<small class='search-result'>名称：${searchResults[arrayNum].label.substr(0, wordValue)}</small></br>` +
-    `<p class='search-result' >${matchWord}</p>` +
-    '</div>'
+    `<dt class='search-result' >${matchWord}</dt>` +
+    '</dl>'
   }
   return resultElement
 }

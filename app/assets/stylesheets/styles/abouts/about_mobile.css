@@ -1,0 +1,16 @@
+@media screen and (max-width: 1024px) {
+  .about-text-title{
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  
+  .about-text-contents{  
+    line-height: 1.6;
+    font-size: 1rem;
+    padding: 0 1rem 1.5rem 1rem;
+  }  
+
+  .use{
+    font-size: 2rem;
+    padding: 0 1.5rem 1rem 1.5rem;
+  }
+}
