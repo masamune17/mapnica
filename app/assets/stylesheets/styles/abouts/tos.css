@@ -1,7 +1,7 @@
 .tos-main{
-width: 100%;
-display: flex;            /* Flexboxを指定 */
-justify-content: center;  /* 水平方向の中央寄せ */
+height: auto;
+display: flex;           
+justify-content: center; 
 }
 
 .tos-main-container{
