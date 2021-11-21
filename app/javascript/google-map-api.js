@@ -1,83 +1,16 @@
-const originColor = 'red'
-const clickColor = 'blue'
-const markers = []
-const input = document.getElementById('search-box')
-const wordValue = 100
-const mapOptions = {
-  center: {
-    lat: 41,
-    lng: 12
-  },
-  zoom: 4,
-  disableDefaultUI: true
-}
-let markerData, searchResults
+import { Marker, clickColor } from './marker_info.js'
+import { searchYear } from './search_year.js'
+export let map
 
-let map, selectedMarker
-let inputElem = document.getElementById('era')
+const inputWord = document.getElementById('search-box')
+const wordValue = 100
+
+let searchResults
+let inputYear = document.getElementById('year')
 let currentValueElem = document.getElementById('current-value')
 
-input.addEventListener('input', updateResult)
-
-const setCurrentValue = (val) => {
-  currentValueElem.innerText = val
-  const era = Number(val)
-  showMarker(era)
-}
-
-const rangeOnChange = (e) => {
-  setCurrentValue(e.target.value)
-}
-
-inputElem.addEventListener('input', rangeOnChange)
-
-function initMap () {
-  map = new google.maps.Map(document.getElementById('map'), mapOptions) // eslint-disable-line
-}
-
-async function showMarker (era) {
-  const searcheEraAPI = await searchEra(era)
-  markerData = searcheEraAPI
-  if (markers !== []) {
-    for (let i = 0; i < markers.length; i++) {
-      markers[i].setMap(null)
-    }
-  }
-  for (let i = 0; i < markerData.length; i++) {
-    const markerLatLng = new google.maps.LatLng({ // eslint-disable-line
-      lat: markerData[i].latitude,
-      lng: markerData[i].longitude
-    })
-
-    markers[i] = new google.maps.Marker({ // eslint-disable-line
-      position: markerLatLng,
-      map: map,
-      icon: pinSymbol(originColor)
-    })
-    markerEvent(i)
-  }
-}
-
-function markerEvent (i) {
-  markers[i].addListener('click', function () {
-    showMarkerInfo(markerData[i])
-    changeColor(i, clickColor)
-  })
-}
-
-function showMarkerInfo (historyData) {
-  const explainElement = document.getElementById('main-explain-item-container')
-  if (explainElement.classList.contains('fadeout-explain')) {
-    explainElement.classList.remove('fadeout-explain')
-  }
-  explainElement.classList.add('fadein-explain')
-  document.getElementById('accrual_date').innerHTML = historyData.accrual_date
-  document.getElementById('label').innerHTML = historyData.label.replace(/　/g, ' ') // eslint-disable-line
-  document.getElementById('abstract').innerHTML = historyData.abstract.replace(/　/g, ' ') // eslint-disable-line
-  document.getElementById('close-explain-button').addEventListener('click', function () {
-    explainElement.classList.add('fadeout-explain')
-    explainElement.classList.remove('fadein-explain')
-  })
+function rangeOnChange (year) {
+  setCurrentValue(year.target.value)
 }
 
 function updateResult (input) {
@@ -152,52 +85,55 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
 
 function clickResult (arrayNum) {
   document.getElementById(`search-result${arrayNum}`).addEventListener('click', async function () {
-    const resultEra = Math.floor(Number(searchResults[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
-    const resultSlidesr = `<p class="era"><span id="current-value">${resultEra}</span> Year</p>` +
-    `<input type="range" id="era" min="-400" max="2000" step="100" value="${resultEra}">`
+    const resultYear = Math.floor(Number(searchResults[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
+    const resultSlidesr = `<p class="year"><span id="current-value">${resultYear}</span> Year</p>` +
+    `<input type="range" id="year" min="-400" max="2000" step="100" value="${resultYear}">`
     document.getElementById('slider-container').innerHTML = resultSlidesr
     setSlider()
-    showMarker(resultEra)
-    showMarkerInfo(searchResults[arrayNum])
-    const searcheEraAPI = await searchEra(resultEra)
+    Marker.showMarker(resultYear)
+    Marker.showMarkerInfo(searchResults[arrayNum])
+    const searcheEraAPI = await searchYear(resultYear)
     let makerNum
     for (let i = 0; i < searcheEraAPI.length; i++) {
       if (searcheEraAPI[i].id === searchResults[arrayNum].id) {
         makerNum = i
       }
     }
-    changeColor(makerNum, clickColor)
+    Marker.changeColor(makerNum, clickColor)
     map.panTo(new google.maps.LatLng(searchResults[arrayNum].latitude, searchResults[arrayNum].longitude)) // eslint-disable-line
   }, false)
 }
 
 function setSlider () {
-  inputElem = document.getElementById('era')
+  inputYear = document.getElementById('year')
   currentValueElem = document.getElementById('current-value')
-  inputElem.addEventListener('input', rangeOnChange)
+  inputYear.addEventListener('input', rangeOnChange)
 }
 
-function pinSymbol (color) {
-  return {
-    path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
-    fillColor: color,
-    fillOpacity: 1,
-    strokeColor: '#000',
-    strokeWeight: 2,
-    scale: 1
-  }
-}
-function changeColor (i, color) {
-  restoreColors(markers[i])
-  selectedMarker = markers[i]
-  markers[i].setIcon(pinSymbol(color))
-}
-function restoreColors (selectMarker) {
-  if (selectedMarker != null && selectedMarker !== selectMarker) {
-    selectedMarker.setIcon(pinSymbol(originColor))
-  }
+function searchKeyword (keyword) {
+  const url = '/api/maps/searche_word'
+  const data = { keyword: keyword }
+  const queryParams = new URLSearchParams(data)
+  return fetch(`${url}?` + queryParams) // eslint-disable-line
+    .then(response => response.json())
 }
 
+// mapOptions.js
+
+// googlemapを立ち上げるok
+function initMap () {
+  const mapOptions = {
+    center: {
+      lat: 41,
+      lng: 12
+    },
+    zoom: 4,
+    disableDefaultUI: true
+  }
+  map = new google.maps.Map(document.getElementById('map'), mapOptions) // eslint-disable-line
+}
+
+// 検索ボタンを押下した際のアクションok
 function searchButtonAction () {
   const searchItemElement = document.getElementById('search-items-container')
   document.getElementById('search-btn').addEventListener('click', function () {
@@ -213,24 +149,18 @@ function searchButtonAction () {
   })
 }
 
+// 年代スライダーに初期の値を入れる
+function setCurrentValue (val) {
+  currentValueElem.innerText = val
+  const era = Number(val)
+  Marker.showMarker(era)
+}
+
+// htmlを読み込み次第実行する初期操作
 window.onload = function () {
   initMap()
   searchButtonAction()
-  setCurrentValue(inputElem.value)
-}
-
-function searchEra (era) {
-  const url = '/api/maps/searche_year'
-  const data = { era: era }
-  const queryParams = new URLSearchParams(data)
-  return fetch(`${url}?` + queryParams) // eslint-disable-line
-    .then(response => response.json())
-}
-
-function searchKeyword (keyword) {
-  const url = '/api/maps/searche_word'
-  const data = { keyword: keyword }
-  const queryParams = new URLSearchParams(data)
-  return fetch(`${url}?` + queryParams) // eslint-disable-line
-    .then(response => response.json())
+  setCurrentValue(inputYear.value)
+  inputYear.addEventListener('input', rangeOnChange)
+  inputWord.addEventListener('input', updateResult)
 }

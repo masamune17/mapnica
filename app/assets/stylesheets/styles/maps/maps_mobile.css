@@ -1,0 +1,237 @@
+@media screen and (max-width: 1024px) {
+  :root {
+    --header-height: 4rem;
+  }
+
+  header{
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background-color: #25282F;  
+  }
+
+  .title-container{
+    position: relative;
+  }
+
+  .title{
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    height: 2rem;
+    width: 80px;
+  }
+
+  
+  .mapnica{
+    font-family: trajan-pro-3, serif;
+    color: white;    
+    font-size: 1rem;
+  }
+  
+  .slider-items-container{
+    box-sizing:border-box;
+    height: 100%;
+    width: 80%;  
+  }
+
+  .search-container{
+    box-sizing: border-box;
+    width: 10%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .year{
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: sans-serif;
+  }
+
+  #search-btn{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding-top: 1rem;
+    font-size: 1rem;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    border: solid 1px white;
+    padding: auto;
+  } 
+
+  #search-btn:active{
+    opacity: 0.7;
+  }
+
+  .search-items-container{
+    visibility: hidden;
+    right: 400%;
+    top: 4rem;
+    z-index: -10;
+    font-size: 1rem;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    background:#eee;
+    margin: 1px;
+  }
+
+  .fadein-search-items{    
+    width: 400%;
+    height: 40%;
+    animation: fadein-search-items 0.2s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein-search-items {
+    0% {            
+      right: -400%;
+      opacity: 0;
+    }
+    100% {
+      right: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .fadeout-search-items{
+    animation: fadeout-search-items 0.2s;
+  }
+  
+  @keyframes fadeout-search-items {
+    0% {          
+      right: 0;
+      width: 400%;
+      height: 40%;   
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      right: 0;
+      transform: translateX(100%);
+      width: 400%;
+      height: 40%; 
+      opacity: 0;      
+      visibility: visible;
+    }
+  }
+
+  .search-results{
+    padding: 10px;
+    width: 90%;
+    max-height: 300px;
+    background:#eee;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1;
+  }
+
+  input.search-box{
+    font-size: 1rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  small.search-result{
+    font-size: 1rem;
+    color: #555;
+    border-bottom: solid 1px #888;
+  }
+
+  .search-result{
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .main-container{
+    height: calc(100% - var(--header-height));
+  }
+
+  .accrual-date-container,
+  .label-container{
+    box-sizing:border-box;
+    height: 10%;
+    padding: 10px;
+  }
+
+  .abstract-container{
+    box-sizing:border-box;
+    height: 80%;
+    padding: 10px;
+  }
+
+  .explain-text{
+    border-bottom: solid 1px #555;
+  }
+  
+  #accrual_date,
+  #label,
+  #abstract {
+    height: 90%;
+  }
+
+  .main-explain-item-container{
+    top: 70%;
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    background-color:#ffffff;
+  }
+
+  .fadein-explain{
+    height: 80%; 
+    animation: fadein-explain 0.2s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein-explain {
+    0% {      
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .fadeout-explain{
+    animation: fadeout-explain 0.2s;
+  }
+  
+  @keyframes fadeout-explain {
+    0% {    
+      opacity: 1;
+      height: 80%;
+      visibility: visible;
+    }
+    100% {
+      transform: translateY(50%);
+      height: 80%;      
+      opacity: 0;      
+      visibility: visible;
+    }
+  }
+  input[type="range"] {
+    width: 100%;
+  }
+}
