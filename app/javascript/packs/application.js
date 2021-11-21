@@ -1,1 +1,1 @@
-import '../google-map-api.js'
+import '../main.js'

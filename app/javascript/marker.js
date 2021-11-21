@@ -1,4 +1,4 @@
-import { map } from './google-map-api.js'
+import { map } from './main.js'
 import { searchYear } from './search_year.js'
 
 let markerData, selectedMarker
