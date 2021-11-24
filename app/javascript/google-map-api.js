@@ -138,14 +138,14 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
   )
   let resultElement
   if (jugeLabel) {
-    resultElement = `<dl class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
-    `<dt class='search-result' >${matchWord}</dt>` +
-    '</dl>'
+    resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
+    `<div class='search-result__title'>${matchWord}</div>` +
+    '</div>'
   } else {
-    resultElement = `<dl class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
-    `<small class='search-result'>名称：${searchResults[arrayNum].label.substr(0, wordValue)}</small></br>` +
-    `<dt class='search-result' >${matchWord}</dt>` +
-    '</dl>'
+    resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
+    `<div class='search-result__title'>${searchResults[arrayNum].label.substr(0, wordValue)}</div>` +
+    `<div class='search-result__body'><p>${matchWord}</p></div>` +
+    '</div>'
   }
   return resultElement
 }
