@@ -1,0 +1,365 @@
+html {
+  color: $text;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.slider-items-container {
+  width: 100%;
+  max-width: 768px;
+  padding: 0 1rem;
+}
+
+.slider-container {
+  text-align: center;
+}
+
+.era {
+  color: $font;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: -.125rem;
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+.search-container {
+  position: relative;
+  z-index: 1;
+}
+
+.search-box {
+  width: 100%;
+  background:#eee;
+  border-radius: 4px;
+  border: solid 1px #3a6586;
+  padding: .25rem .5rem;
+  outline: none;
+  min-width: 16rem;
+  &:focus,
+  &:focus-visible {
+    box-shadow: #8ab9de 0 0 0 1px;
+  }
+}
+
+.search-results {
+  width: 100%;
+  max-height: calc(100vh - 5rem);
+  background:#eee;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1;
+  border: solid 1px $main;
+  border-radius: 4px;
+  @media screen and (max-width: 480px) {
+    width: calc(100% - 2rem);
+    max-height: calc(100vh - 34rem);
+  }
+}
+
+.search-result {
+  cursor: pointer;
+  padding: .75rem 1rem;
+  line-height: 1.6;
+  transition: all .2s ease-out;
+  &:not(:last-child) {
+    border-bottom: dashed 1px #bfbfbf;
+  }
+  &:hover {
+    background-color: $base;
+  }
+}
+
+.search-result__title,
+.search-result__body {
+  color: $text;
+}
+
+.search-result__title{
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.search-result__body {
+  font-size: .75rem;
+  color: #707e88;
+}
+
+.matched_word {
+  color: #a73131;
+  font-weight: 600;
+}
+
+.header__end {
+  display: flex;
+  align-items: center;
+}
+
+
+.main-container {
+  flex: 1;
+}
+
+.main-explain-item-container {
+  visibility: hidden;
+  z-index: 10;
+  position: fixed;
+	width: 40rem;
+  max-width: calc(100vw - 3.75rem);
+  height: calc(100vh - #{$headerHeight});
+  opacity: 0;
+  background-color:$base;
+  @media screen and (max-width: 480px) {
+    bottom: 0;
+    z-index: 1;
+    width: 100vw;
+    max-width: 100vw;
+    height: 0;
+  }
+}
+
+.fadein-explain {
+  animation: fadein-explain .2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein-explain {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.fadeout-explain {
+  animation: fadeout-explain .2s;
+}
+
+@keyframes fadeout-explain {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: visible;
+  }
+}
+
+.main-explain-items {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-right: solid 1px $text;
+  @media screen and (max-width: 480px) {
+    border-right: none;
+    border-top: solid 1px $text;
+  }
+}
+
+.accrual-date-container {
+  position: relative;
+}
+
+.label-container,
+.abstract-container {
+  margin-top: 1.25rem;
+  @media screen and (max-width: 480px) {
+    margin-top: 1rem;
+  }
+}
+
+.abstract-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.explain-text {
+  border-bottom: solid 1px #b8c6d2;
+  color: $main;
+  font-size: .875rem;
+  margin-bottom: .5rem;
+  @media screen and (max-width: 480px) {
+    font-size: .75rem;
+  }
+}
+
+#accrual_date,
+#label,
+#abstract {
+  font-size: 1rem;
+  line-height: 1.8;
+  @media screen and (max-width: 480px) {
+    font-size: .875rem;
+  }
+}
+
+.abstract-body {
+  flex: 1;
+  position: relative;
+}
+
+#abstract {
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.map-container {
+	width: 100%;
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  background-color: $base;
+  height: 4px;
+  border-radius: 6px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: $font;
+  height: 20px;
+  width: 20px;
+  border: solid 1px gray;
+  border-radius:50%;
+}
+
+.header-menu#search-btn {
+  display: none;
+  @media screen and (max-width: 480px) {
+    display: flex;
+  }
+}
+
+.magnifying-glass {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  color: $font;
+  font-size: 1rem;
+}
+
+.magnifying-glass::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 0.15rem solid currentColor;
+  border-radius: 50%;
+  background-color: $main;
+  content: "";
+}
+
+.magnifying-glass::after {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  z-index: -1;
+  transform: rotate(-45deg);
+  width: 0.15rem;
+  height: 1rem;
+  background-color: currentColor;
+  content: "";
+}
+
+.close-explain-button {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  $size: 2.75rem;
+  top: 0;
+  right: calc(#{$size * -1});
+  height: $size;
+  width: $size;
+  border-radius: 0 0 4px 0;
+  background-color: $text;
+  @media screen and (max-width: 480px) {
+    top: calc(#{$size * -1});
+    right: 0;
+    border-radius: 4px 0 0 0;
+  }
+}
+
+.close-explain-button:hover .batsu::before,
+.close-explain-button:hover .batsu::after {
+  opacity: 1;
+}
+
+.batsu {
+  display: block;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 1rem;
+    background: $font;
+    opacity: .6;
+    transition: all .2s ease-out;
+  }
+  &::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+  &::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+  }
+}
+
+////////
+
+.search-items-container {
+  @media screen and (max-width: 480px) {
+    visibility: hidden;
+    z-index: 10;
+    font-size: 1rem;
+    position: fixed;
+    top: $headerHeight;
+    left: 0;
+    width: 100vw;
+    opacity: 0;
+    background-color: $base;
+    padding: 1rem;
+    border-bottom: solid 1px $text;
+  }
+}

@@ -1,0 +1,63 @@
+@media screen and (max-width: 480px) {
+  .fadein-search-items {
+    animation: fadein-search-items .2s forwards;
+  }
+
+  @keyframes fadein-search-items {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .fadeout-search-items {
+    animation: fadeout-search-items .2s forwards;
+  }
+
+  @keyframes fadeout-search-items {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: visible;
+    }
+  }
+
+  .fadein-explain {
+    height: 50vh;
+    animation: fadein-explain .2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadein-explain {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .fadeout-explain {
+    animation: fadeout-explain .2s;
+  }
+
+  @keyframes fadeout-explain {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      transform: translateY(50%);
+      opacity: 0;
+      visibility: visible;
+    }
+  }
+}

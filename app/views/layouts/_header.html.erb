@@ -1,0 +1,24 @@
+<header>
+  <div class="header__start">
+    <label class="header-menu is-menu" for="menu">
+      <span class="header-menu__bars"><span class="header-menu__bar"></span></span>
+      <span class="header-menu__label">Menu</span>
+    </label>
+    <div class="title-container">
+      <%= link_to root_path, class: "title" do %>
+        <%= image_tag('logo', alt: 'Mapnica', class: 'logo') %>
+      <% end %>
+    </div><!-- .title-container -->
+  </div><!-- .header__start -->
+
+  <% if map_page? %>
+    <%= render '/maps/slider_items_container' %>
+  <% end %>
+
+  <div class="header__end">
+    <% if map_page? %>
+      <%= render '/maps/search_container.html' %>
+    <% end %>
+  </div><!-- .header__end -->
+</header>
+<%= render '/layouts/menu' %>

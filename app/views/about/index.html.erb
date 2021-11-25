@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<head>
-  <% provide(:title, "About") %>
-  <%= stylesheet_link_tag 'abouts', media: 'all', 'data-turbolinks': 'reload' %>
-</head>
-<body>
-  <%= render 'header' %>
-  <div class="main-container">
-    <div class="main-container-items">
-      <p class="about-text-title">
-       - About -
-      </p>
-      <p class="about-text-contents">
-        Mapnicaは歴史の出来事を地図上に表示するサービスです<br>
-        年代やキーワードでの検索が可能で<br>
-        検索した出来事が地図上に表示されます
-      </p>
-      <p class="use">
-        - Use -
-       </p>
-      <div class="about-logo-button">
-        <a href="/">
+<% provide(:title, "About") %>
+<div class="main-container">
+  <div class="static-text">
+    <h1>Mapnicaについて</h1>
+    <p class="about-text-contents">
+      Mapnicaは歴史の出来事を地図上に表示するサービスです。<br>
+      年代、キーワードで検索ができ、<br>
+      検索した出来事が地図上に表示されます。
+    </p>
+    <p>
+        <%= link_to root_path, class: "about-logo-button" do %>
           <img src="/icons/mapnica_logo.png">
-        </a>
-      </div>
-    </div>
-  </div>
-  <%= render 'footer' %>
-</body>
+        <% end %>
+    </p>
+  </div><!-- .static-text -->
+</div><!-- .main-containe -->

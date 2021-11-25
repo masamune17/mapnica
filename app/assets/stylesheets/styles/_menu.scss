@@ -1,0 +1,59 @@
+#menu {
+  opacity: 0;
+  position: absolute;
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: $headerHeight;
+  bottom: 0;
+  z-index: 10;
+  background-color: $base;
+  overflow: hidden;
+  width: 0;
+  max-width: 0;
+  transition: all .2s ease-out;
+  border-right: solid 1px $text;
+  @media screen and (max-width: 480px) {
+    top: auto;
+    max-width: 100%;
+    width: 100%;
+    height: 0;
+    border-right: none;
+    border-top: solid 1px $text;
+  }
+}
+
+input:checked + .menu {
+  width: 20rem;
+  max-width: 100%;
+  overflow: visible;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    height: 50vh;
+  }
+}
+
+.menu__inner {
+  padding: 1rem 2rem;
+  width: 20rem;
+  @media screen and (max-width: 480px) {
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.menu__item + .menu__item {
+  border-top: dashed 1px #ccc;
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .5rem 0;
+  text-decoration: none;
+  color: $text;
+}

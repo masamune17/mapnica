@@ -1,0 +1,85 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  background-color: $main;
+  color: $font;
+  padding: .5rem 1rem;
+  height: $headerHeight;
+  min-height: $headerHeight;
+  @media screen and (max-width: 480px) {
+    padding: .5rem .25rem;
+  }
+}
+
+.header__start {
+  display: flex;
+}
+
+.title-container {
+  width: 9rem;
+  margin-left: 2rem;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title:hover {
+  opacity: 0.7;
+}
+
+.header-menu {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 4px;
+  padding: .625rem .75rem .25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  span {
+    display: block;
+  }
+}
+
+.header-menu__bars {
+  height: 2rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-menu__bar {
+  margin: 3px 0;
+}
+
+.header-menu__bar,
+.header-menu__bars::before,
+.header-menu__bars::after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: $base;
+  border-radius: 2px;
+}
+
+.header-menu__bars::before,
+.header-menu__bars::after {
+  content: '';
+}
+
+.header-menu__label {
+  font-size: .625rem;
+}
