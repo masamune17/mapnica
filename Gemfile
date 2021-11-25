@@ -28,7 +28,6 @@ group :development do
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
   # not default
-  gem 'html2slim'
   gem 'slim_lint', require: false
 end
 
