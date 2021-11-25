@@ -6,9 +6,7 @@ html
     = display_meta_tags(default_meta_tags)
     = csrf_meta_tags
     = csp_meta_tag
-    |  <script async defer src='https://maps.googleapis.com/maps/api/js?key=
-    = Rails.application.credentials.maps[:google_maps_api_key]
-    | '>
+    script src='https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.maps[:google_maps_api_key]}', async: 'async', defer: 'defer'
     = favicon_link_tag '/favicon.ico'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks': 'reload'
   body
