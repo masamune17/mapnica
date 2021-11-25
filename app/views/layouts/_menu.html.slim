@@ -1,0 +1,12 @@
+input#menu[type='checkbox']
+nav.menu
+  label.close-explain-button[for='menu']
+    span.batsu
+  ul.menu__inner
+
+  li.menu__item
+    = link_to 'Map', root_path, class: 'menu__link'
+  li.menu__item
+    = link_to 'Mapnicaについて', about_path, class: 'menu__link'
+  li.menu__item
+    = link_to '利用規約', tos_path, class: 'menu__link'

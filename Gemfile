@@ -16,25 +16,26 @@ gem 'webpacker', '~> 5.0'
 # not default
 gem 'meta-tags'
 gem 'pg'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
-
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-
   gem 'spring'
+  gem 'web-console', '>= 4.1.0'
+  # not default
+  gem 'html2slim'
+  gem 'slim_lint', require: false
 end
 
 group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
 
-  gem 'erb_lint', require: false
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails'

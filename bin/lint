@@ -2,4 +2,4 @@
 
 bundle exec rubocop -a
 bin/yarn lint --fix
-erblint . -a .erb-lint.yml
+bundle exec slim-lint app/views -c config/slim_lint.yml
