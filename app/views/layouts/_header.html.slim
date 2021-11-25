@@ -1,0 +1,16 @@
+header
+  .header__start
+    label.header-menu.is-menu[for='menu']
+      span.header-menu__bars
+        span.header-menu__bar
+      span.header-menu__label
+        | Menu
+    .title-container
+      = link_to root_path, class: 'title' do
+        = image_tag('logo', alt: 'Mapnica', class: 'logo')
+  - if map_page?
+    = render '/maps/slider_items_container'
+  .header__end
+    - if map_page?
+      = render '/maps/search_container.html'
+= render '/layouts/menu'
