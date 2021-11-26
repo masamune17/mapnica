@@ -6,9 +6,20 @@ const inputWord = document.getElementById('search-box')
 let inputYear = document.getElementById('year')
 let currentValueElem = document.getElementById('current-value')
 
-// main.js
+export const setSlider = () => {
+  inputYear = document.getElementById('year')
+  currentValueElem = document.getElementById('current-value')
+  inputYear.addEventListener('input', rangeOnChange)
+}
 
-// googlemapを立ち上げるok
+window.onload = () => {
+  initMap()
+  searchButtonAction()
+  setCurrentValue(inputYear.value)
+  inputYear.addEventListener('input', rangeOnChange)
+  inputWord.addEventListener('input', updateResult)
+}
+
 function initMap () {
   const mapOptions = {
     center: {
@@ -21,7 +32,6 @@ function initMap () {
   map = new google.maps.Map(document.getElementById('map'), mapOptions) // eslint-disable-line
 }
 
-// 検索ボタンを押下した際のアクションok
 function searchButtonAction () {
   const searchItemElement = document.getElementById('search-items-container')
   document.getElementById('search-btn').addEventListener('click', function () {
@@ -37,30 +47,12 @@ function searchButtonAction () {
   })
 }
 
-// 年代スライダーに初期の値を入れる
 function setCurrentValue (val) {
   currentValueElem.innerText = val
   const era = Number(val)
   Marker.showMarker(era)
 }
 
-// 検索結果をクリックした際、スライダーを更新
-export function setSlider () {
-  inputYear = document.getElementById('year')
-  currentValueElem = document.getElementById('current-value')
-  inputYear.addEventListener('input', rangeOnChange)
-}
-
-// スライダーの値を動かした際の操作
 function rangeOnChange (year) {
   setCurrentValue(year.target.value)
-}
-
-// htmlを読み込み次第実行する初期操作
-window.onload = function () {
-  initMap()
-  searchButtonAction()
-  setCurrentValue(inputYear.value)
-  inputYear.addEventListener('input', rangeOnChange)
-  inputWord.addEventListener('input', updateResult)
 }
