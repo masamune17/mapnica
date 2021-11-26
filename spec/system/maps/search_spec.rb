@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Search', type: :system do
+describe 'Search', type: :system do
   describe 'Search word' do
     before do
       create(:one)

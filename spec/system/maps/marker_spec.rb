@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Google Maps Marker', type: :system do
+describe 'Google Maps Marker', type: :system do
   describe 'Marker action' do
     before do
       create(:one)
