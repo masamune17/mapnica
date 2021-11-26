@@ -45,6 +45,11 @@ input:checked + .menu {
   }
 }
 
+.menu__item{
+  display: flex;
+  padding-left: .5rem;
+}
+
 .menu__item + .menu__item {
   border-top: dashed 1px #ccc;
 }
