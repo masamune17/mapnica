@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Search', type: :system do
+describe '検索機能', type: :system do
   describe 'Search word' do
     before do
       create(:one)
