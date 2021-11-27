@@ -53,6 +53,7 @@ async function outputResult (keyword) {
 }
 
 function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
+  const idNum = searchResults[arrayNum].id
   const wordsPattern = keyword
     .trim()
     .replaceAll(/[.*+?^=!:${}()|[\]/\\]/g, '\\$&')
@@ -63,11 +64,11 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
   )
   let resultElement
   if (jugeLabel) {
-    resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
+    resultElement = `<div class="search-result" id="search-result${idNum}">` +
     `<div class='search-result__title'>${matchWord}</div>` +
     '</div>'
   } else {
-    resultElement = `<div class="search-result" id="search-result${arrayNum}" value="${arrayNum}">` +
+    resultElement = `<div class="search-result" id="search-result${idNum}">` +
     `<div class='search-result__title'>${searchResults[arrayNum].label.substr(0, wordValue)}</div>` +
     `<div class='search-result__body'><p>${matchWord}</p></div>` +
     '</div>'
@@ -76,7 +77,8 @@ function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
 }
 
 function clickResult (arrayNum) {
-  document.getElementById(`search-result${arrayNum}`).addEventListener('click', async function () {
+  const idNum = searchResults[arrayNum].id
+  document.getElementById(`search-result${idNum}`).addEventListener('click', async function () {
     const resultYear = Math.floor(Number(searchResults[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
     const resultSlidesr = `<p class="year"><span id="current-value">${resultYear}</span> Year</p>` +
     `<input type="range" id="year" min="-400" max="2000" step="100" value="${resultYear}">`
