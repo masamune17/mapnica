@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 
-describe '検索機能', type: :system do
+describe '検索機能', type: :system, js: true do
   describe 'Search word' do
     before do
       create(:one)
       visit root_path
-      fill_in 'search-box', with: 'スタンフォード'
+      fill_in 'search-box', with: 'スタ'
     end
     it '検索結果が表示される' do
       expect(page).to have_content 'スタンフォード・ブリッジの戦い'
