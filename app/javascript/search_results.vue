@@ -1,6 +1,18 @@
-<template>  
-    <resultRabel v-for='resultlabel in resultlabels' :key='resultlabel.label' :resultlabel='resultlabel' :keyword='keyword'></resultRabel>
-    <resultAbstruct v-for='resultAbstruct in resultAbstructs' :key='resultAbstruct.label' :resultAbstruct='resultAbstruct' :keyword='keyword'></resultAbstruct>
+<template>
+  <div>
+    <resultLabel
+      v-for="resultLabel in resultLabels"
+      :key="resultLabel.label"
+      :result-label="resultLabel"
+      :keyword="keyword"
+    ></resultLabel>
+    <resultAbstruct
+      v-for="resultAbstruct in resultAbstructs"
+      :key="resultAbstruct.label"
+      :result-abstruct="resultAbstruct"
+      :keyword="keyword"
+    ></resultAbstruct>
+  </div>
 </template>
 
 <script>
@@ -8,21 +20,25 @@ import ResultLabel from './search_result_label.vue'
 import ResultAbstruct from './search_result_abstruct.vue'
 export default {
   components: {
-    resultRabel: ResultLabel,
+    resultLabel: ResultLabel,
     resultAbstruct: ResultAbstruct
   },
   props: {
-    resultlabels: { 
+    resultLabels: {
       type: Object,
       required: true,
       default: null
     },
-    resultAbstructs: { 
+    resultAbstructs: {
       type: Object,
       required: true,
       default: null
     },
-    keyword: {type: String}
+    keyword: {
+      type: String,
+      required: true,
+      default: null
+    }
   }
 }
 </script>

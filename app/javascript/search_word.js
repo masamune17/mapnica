@@ -4,7 +4,7 @@ import { map, setSlider } from './main.js'
 import { searchYear } from './search_year.js'
 import searchResults from './search_results.vue'
 
-let resultlabels, resultAbstructs
+let resultLabels, resultAbstructs
 
 export function updateResult (input) {
   const resultsElement = '<div id="search-results" class="search-results"></div>'
@@ -21,19 +21,19 @@ export function updateResult (input) {
 }
 
 async function outputResult (keyword) {
-  resultlabels = []
+  resultLabels = []
   resultAbstructs = []
   const searcheWordApi = await searchKeyword(keyword)
   const selector = '#search-results'
   const appSearchResults = createApp(searchResults, {
-    resultlabels: resultlabels,
+    resultLabels: resultLabels,
     resultAbstructs: resultAbstructs,
     keyword: keyword
   })
   for (let i = 0; i < searcheWordApi.length; i++) {
     const labelSearch = searcheWordApi[i].label.toLowerCase().indexOf(keyword)
     if (labelSearch !== -1) {
-      resultlabels.push(searcheWordApi[i])
+      resultLabels.push(searcheWordApi[i])
     }
   }
   for (let i = 0; i < searcheWordApi.length; i++) {
@@ -46,9 +46,9 @@ async function outputResult (keyword) {
     }
   }
   appSearchResults.mount(selector)
-  if (resultlabels.length !== 0) {
-    for (let i = 0; i < resultlabels.length; i++) {
-      clickResult(resultlabels, i)
+  if (resultLabels.length !== 0) {
+    for (let i = 0; i < resultLabels.length; i++) {
+      clickResult(resultLabels, i)
     }
   }
   if (resultAbstructs.length !== 0) {
