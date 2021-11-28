@@ -9,8 +9,8 @@ export const clickColor = 'blue'
 export class Marker {
   static showMarker (year) {
     async function generateMarker () {
-      const searcheEraAPI = await searchYear(year)
-      markerData = searcheEraAPI
+      const searcheYearAPI = await searchYear(year)
+      markerData = searcheYearAPI
       if (markers !== []) {
         for (let i = 0; i < markers.length; i++) {
           markers[i].setMap(null)
