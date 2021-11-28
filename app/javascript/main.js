@@ -1,16 +1,8 @@
-import { createApp } from 'vue'
-import { updateResult } from './search_word.js'
-import SliderItems from './slider_items.vue'
 export let map
-const inputWord = document.getElementById('search-box')
 
 window.onload = () => {
   initMap()
   searchButtonAction()
-  const selector = '#js-slider-container'
-  const appSearchResults = createApp(SliderItems)
-  appSearchResults.mount(selector)
-  inputWord.addEventListener('input', updateResult)
 }
 
 function initMap () {
@@ -26,7 +18,7 @@ function initMap () {
 }
 
 function searchButtonAction () {
-  const searchItemElement = document.getElementById('search-items-container')
+  const searchItemElement = document.getElementById('js-search-items-container')
   document.getElementById('search-btn').addEventListener('click', function () {
     if (searchItemElement.classList.length === 1) {
       searchItemElement.classList.add('fadein-search-items')

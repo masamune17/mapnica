@@ -6,3 +6,5 @@ Rails.start()
 ActiveStorage.start()
 
 require('../main.js')
+require('../search_box.js')
+require('../slider_items.js')

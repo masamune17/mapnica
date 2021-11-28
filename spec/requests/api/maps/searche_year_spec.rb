@@ -9,8 +9,8 @@ describe 'API::Maps::SearcheYear', type: :request do
     create(:four)
   end
   it '特定の年代のデータを取得する' do
-    era = 1000
-    query = { era: era }.to_query
+    year = 1000
+    query = { year: year }.to_query
     uri = '/api/maps/searche_year'
     get "#{uri}?#{query}"
     json = JSON.parse(response.body)
