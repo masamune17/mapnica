@@ -1,17 +1,8 @@
 import { createApp } from 'vue'
-// import { Marker } from './marker.js'
 import { updateResult } from './search_word.js'
 import SliderItems from './slider_items.vue'
 export let map
 const inputWord = document.getElementById('search-box')
-// let inputYear = document.getElementById('year')
-// let currentValueElem = document.getElementById('current-value')
-
-// export const setSlider = () => {
-//   inputYear = document.getElementById('year')
-//   currentValueElem = document.getElementById('current-value')
-//   inputYear.addEventListener('input', rangeOnChange)
-// }
 
 window.onload = () => {
   initMap()
@@ -19,7 +10,6 @@ window.onload = () => {
   const selector = '#slider-container'
   const appSearchResults = createApp(SliderItems)
   appSearchResults.mount(selector)
-  // inputYear.addEventListener('input', rangeOnChange)
   inputWord.addEventListener('input', updateResult)
 }
 
@@ -49,13 +39,3 @@ function searchButtonAction () {
     }
   })
 }
-
-// function setCurrentValue (val) {
-//   // currentValueElem.innerText = val
-//   const era = Number(val)
-//   Marker.showMarker(era)
-// }
-
-// function rangeOnChange (year) {
-//   setCurrentValue(year.target.value)
-// }
