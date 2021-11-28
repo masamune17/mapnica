@@ -7,7 +7,7 @@ const inputWord = document.getElementById('search-box')
 window.onload = () => {
   initMap()
   searchButtonAction()
-  const selector = '#slider-container'
+  const selector = '#js-slider-container'
   const appSearchResults = createApp(SliderItems)
   appSearchResults.mount(selector)
   inputWord.addEventListener('input', updateResult)
