@@ -35,6 +35,7 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
 
+  gem 'database_rewinder'
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails'

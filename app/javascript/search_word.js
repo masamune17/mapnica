@@ -1,9 +1,11 @@
+import { createApp } from 'vue'
 import { Marker, clickColor } from './marker.js'
-import { map, setSlider } from './main.js'
+import { map } from './main.js'
 import { searchYear } from './search_year.js'
-const wordValue = 100
+import SearchResults from './search_results.vue'
+import * as SliderItems from './slider_items.vue'
 
-let searchResults
+let resultLabels, resultAbstructs
 
 export function updateResult (input) {
   const resultsElement = '<div id="search-results" class="search-results"></div>'
@@ -20,70 +22,50 @@ export function updateResult (input) {
 }
 
 async function outputResult (keyword) {
+  resultLabels = []
+  resultAbstructs = []
   const searcheWordApi = await searchKeyword(keyword)
-  searchResults = searcheWordApi
-  let results = ''
-  const resultsArray = []
-  for (let i = 0; i < searchResults.length; i++) {
-    const labelSearch = searchResults[i].label.toLowerCase().indexOf(keyword)
+  const selector = '#search-results'
+  // eslint-disable-next-line vue/one-component-per-file
+  const appSearchResults = createApp(SearchResults, {
+    resultLabels: resultLabels,
+    resultAbstructs: resultAbstructs,
+    keyword: keyword
+  })
+  for (let i = 0; i < searcheWordApi.length; i++) {
+    const labelSearch = searcheWordApi[i].label.toLowerCase().indexOf(keyword)
     if (labelSearch !== -1) {
-      const result = generateResult(keyword, searchResults[i].label, i, true)
-      results += result
-      resultsArray.push(i)
+      resultLabels.push(searcheWordApi[i])
     }
   }
-  for (let i = 0; i < searchResults.length; i++) {
-    const labelSearch = searchResults[i].label.toLowerCase().indexOf(keyword)
+  for (let i = 0; i < searcheWordApi.length; i++) {
+    const labelSearch = searcheWordApi[i].label.toLowerCase().indexOf(keyword)
     if (labelSearch === -1) {
-      const abstractSearch = searchResults[i].abstract.toLowerCase().indexOf(keyword)
+      const abstractSearch = searcheWordApi[i].abstract.toLowerCase().indexOf(keyword)
       if (abstractSearch !== -1) {
-        const start = (abstractSearch >= wordValue / 2) ? abstractSearch - wordValue / 2 : 0
-        const result = generateResult(keyword, searchResults[i].abstract.substr(start, wordValue), i, false)
-        results += result
-        resultsArray.push(i)
+        resultAbstructs.push(searcheWordApi[i])
       }
     }
   }
-  document.getElementById('search-results').innerHTML = results
-  if (results !== '') {
-    for (let i = 0; i < resultsArray.length; i++) {
-      clickResult(resultsArray[i])
+  appSearchResults.mount(selector)
+  if (resultLabels.length !== 0) {
+    for (let i = 0; i < resultLabels.length; i++) {
+      clickResult(resultLabels, i)
+    }
+  }
+  if (resultAbstructs.length !== 0) {
+    for (let i = 0; i < resultAbstructs.length; i++) {
+      clickResult(resultAbstructs, i)
     }
   }
 }
 
-function generateResult (keyword, matchSentence, arrayNum, jugeLabel) {
-  const idNum = searchResults[arrayNum].id
-  const wordsPattern = keyword
-    .trim()
-    .replaceAll(/[.*+?^=!:${}()|[\]/\\]/g, '\\$&')
-  const pattern = new RegExp(wordsPattern, 'i')
-  const matchWord = matchSentence.replace(/　/g, ' ').replace( // eslint-disable-line
-    pattern,
-    '<strong class=\'matched_word\'>$&</strong>'
-  )
-  let resultElement
-  if (jugeLabel) {
-    resultElement = `<div class="search-result" id="search-result${idNum}">` +
-    `<div class='search-result__title'>${matchWord}</div>` +
-    '</div>'
-  } else {
-    resultElement = `<div class="search-result" id="search-result${idNum}">` +
-    `<div class='search-result__title'>${searchResults[arrayNum].label.substr(0, wordValue)}</div>` +
-    `<div class='search-result__body'><p>${matchWord}</p></div>` +
-    '</div>'
-  }
-  return resultElement
-}
-
-function clickResult (arrayNum) {
-  const idNum = searchResults[arrayNum].id
+function clickResult (array, arrayNum) {
+  const searchResults = array
+  const idNum = searchResults[arrayNum].id  
   document.getElementById(`search-result${idNum}`).addEventListener('click', async function () {
     const resultYear = Math.floor(Number(searchResults[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
-    const resultSlidesr = `<p class="year"><span id="current-value">${resultYear}</span> Year</p>` +
-    `<input type="range" id="year" min="-400" max="2000" step="100" value="${resultYear}">`
-    document.getElementById('slider-container').innerHTML = resultSlidesr
-    setSlider()
+    SliderItems.default.methods.clickResultYear(resultYear)
     Marker.showMarker(resultYear)
     Marker.showMarkerInfo(searchResults[arrayNum])
     const searcheEraAPI = await searchYear(resultYear)
