@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import { Marker, clickColor } from './marker.js'
-import { map, setSlider } from './main.js'
+import { map } from './main.js'
 import { searchYear } from './search_year.js'
-import searchResults from './search_results.vue'
+import SearchResults from './search_results.vue'
+import * as SliderItems from './slider_items.vue'
 
 let resultLabels, resultAbstructs
 
@@ -25,7 +26,8 @@ async function outputResult (keyword) {
   resultAbstructs = []
   const searcheWordApi = await searchKeyword(keyword)
   const selector = '#search-results'
-  const appSearchResults = createApp(searchResults, {
+  // eslint-disable-next-line vue/one-component-per-file
+  const appSearchResults = createApp(SearchResults, {
     resultLabels: resultLabels,
     resultAbstructs: resultAbstructs,
     keyword: keyword
@@ -60,13 +62,10 @@ async function outputResult (keyword) {
 
 function clickResult (array, arrayNum) {
   const searchResults = array
-  const idNum = searchResults[arrayNum].id
+  const idNum = searchResults[arrayNum].id  
   document.getElementById(`search-result${idNum}`).addEventListener('click', async function () {
     const resultYear = Math.floor(Number(searchResults[arrayNum].accrual_date.slice(0, -6)) / 100) * 100
-    const resultSlidesr = `<p class="year"><span id="current-value">${resultYear}</span> Year</p>` +
-    `<input type="range" id="year" min="-400" max="2000" step="100" value="${resultYear}">`
-    document.getElementById('slider-container').innerHTML = resultSlidesr
-    setSlider()
+    SliderItems.default.methods.clickResultYear(resultYear)
     Marker.showMarker(resultYear)
     Marker.showMarkerInfo(searchResults[arrayNum])
     const searcheEraAPI = await searchYear(resultYear)
