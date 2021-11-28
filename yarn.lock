@@ -6119,11 +6119,6 @@ prettier-config-standard@^4.0.0:
   resolved "https://registry.yarnpkg.com/prettier-config-standard/-/prettier-config-standard-4.0.0.tgz#4cb82b87249e248bf47c69efbe3f9179abd16f70"
   integrity sha512-K5J34NKeGyJvVVHUg4cAWDhtVYzT7UIRE9GbFyqHNZd61Pr0DHNTMsgoID7IVDmKc0QaLswYwKaNR2apbUJvkg==
 
-prettier@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.0.tgz#a6370e2d4594e093270419d9cc47f7670488f893"
-  integrity sha512-FM/zAKgWTxj40rH03VxzIPdXmj39SwSjwG0heUcNFwI+EMZJnY93yAiKXM3dObIKAM5TA88werc8T/EwhB45eg==
-
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
