@@ -6,6 +6,10 @@
 </template>
 
 <script>
+import { Marker, clickColor } from './marker.js'
+import { map } from './main.js'
+import { searchYear } from './search_year.js'
+import * as SliderItems from './slider_items.vue'
 export default {
   props: {
     resultAbstruct: {
