@@ -76,6 +76,7 @@ export default {
         }
         Marker.changeColor(makerNum, clickColor)
         map.panTo(new google.maps.LatLng(result.latitude, result.longitude)) // eslint-disable-line
+        map.setZoom(6)
       }, false)
     }
   }
