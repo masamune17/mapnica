@@ -31,9 +31,13 @@ import { Marker } from './marker.js'
         Marker.showMarker(year)
         return year
       }
-    }, methods:{
+    }, 
+    methods:{
       clickResultYear(year){
-        this.inputValue = year
+        const elementSpan = document.getElementById("current-value");
+        elementSpan.innerHTML = `${year}`;
+        const elementInput = document.getElementById('year');
+        elementInput.value = year       
       }
     }
   }
