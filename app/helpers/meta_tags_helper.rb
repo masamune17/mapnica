@@ -15,15 +15,15 @@ module MetaTagsHelper
         type: 'website',
         site_name: 'Mapnica',
         description: :description,
-        image: 'https://mapnica.net/ogp/ogp.png',
-        url: 'https://mapnica.net'
+        image: 'https://www.mapnica.net/ogp/ogp.png',
+        url: 'https://www.mapnica.net'
       },
       twitter: {
         card: 'summary',
         site: '@Masamune_catcat',
         description: :description,
-        image: 'https://mapnica.net/ogp/ogp.png',
-        domain: 'https://mapnica.net'
+        image: 'https://www.mapnica.net/ogp/ogp.png',
+        domain: 'https://www.mapnica.net'
       }
     }
   end
