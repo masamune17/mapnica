@@ -1,13 +1,54 @@
 - provide(:title, 'About')
 .main-container
   .static-text
-    h1
-      | Mapnicaについて
+    h3
+      | 目次
+    ul.about_list
+      li
+        a href="#about_mapnica"
+          | Mapnicaとは
+      li
+        a href="#about_use"
+          | 使い方
+        ul.about_use
+          li
+            a href="#about_marker"
+              | 歴史上の出来事を地図上にマーカーとして表示
+          li
+            a href="#about_year"
+              | 年代による検索
+          li
+            a href="#about_keyword"
+              | キーワード検索
+    h3#about_mapnica
+      | Mapnicaとは
     p.about-text-contents
-      |  Mapnicaは歴史の出来事を地図上に表示するサービスです。
+      | Mapnicaは歴史の出来事を地図上に表示するサービスです。
       br
-      |  年代、キーワードで検索ができ、
-      br
-      |  検索した出来事が地図上に表示されます。
+      | 年代やキーワードでの検索が可能で、検索した出来事が地図上に表示されます。
+    h3#about_use
+      | 使い方
+      h4#about_marker
+        | 歴史上の出来事を地図上にマーカーとして表示
+      ul
+        li
+          | 歴史上の出来事を地図上にマーカーとして表示します。
+        li
+          | 表示されたマーカーをクリックすると、クリックされたマーカーの解説が表示されます。
+      = image_tag('marker', alt: 'how to marker', class: 'marker')
+      h4#about_year
+        | 年代による検索
+      ul
+        li
+          | スライダーを操作することで年代による検索を実行し、検索結果のマーカーが地図上に表示されます。
+      = image_tag('slider', alt: 'how to slider', class: 'marker')
+      h4#about_keyword
+        | キーワード検索
+      ul
+        li
+          | 入力したキーワードに合致した検索結果をリスト形式で表示します。
+        li
+          | 表示された検索結果をクリックすると、クリックされた検索結果の解説とマーカー、同じ年代の出来事が地図上に表示されます。
+      = image_tag('keyword', alt: 'how to search by keyword ', class: 'marker')
     p
       = link_to 'Mapへ戻る', root_path, class: 'about-logo-button'
