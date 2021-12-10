@@ -1,9 +1,9 @@
 export let map
 
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
   initMap()
   searchButtonAction()
-}
+})
 
 function initMap () {
   const mapOptions = {
