@@ -42,25 +42,30 @@ export default {
   mounted() {
     this.clickResult()
   },
-  methods:{
-    clickResult(){
+  methods: {
+    clickResult() {
       const result = this.resultLabel
-      document.getElementById(`search-result${result.id}`).addEventListener('click', async function () {  
-        const resultYear = Math.floor(Number(result.accrual_date.slice(0, -6)) / 100) * 100
-        SliderItems.default.methods.clickResultYear(resultYear)
-        Marker.showMarker(resultYear)
-        Marker.showMarkerInfo(result)
-        const searcheEraAPI = await searchYear(resultYear)
-        let makerNum
-        for (let i = 0; i < searcheEraAPI.length; i++) {
-          if (searcheEraAPI[i].id === result.id) {
-            makerNum = i
+      document.getElementById(`search-result${result.id}`).addEventListener(
+        'click',
+        async function () {
+          const resultYear =
+            Math.floor(Number(result.accrual_date.slice(0, -6)) / 100) * 100
+          SliderItems.default.methods.clickResultYear(resultYear)
+          Marker.showMarker(resultYear)
+          Marker.showMarkerInfo(result)
+          const searcheEraAPI = await searchYear(resultYear)
+          let makerNum
+          for (let i = 0; i < searcheEraAPI.length; i++) {
+            if (searcheEraAPI[i].id === result.id) {
+              makerNum = i
+            }
           }
-        }
-        Marker.changeColor(makerNum, clickColor)
-        map.panTo(new google.maps.LatLng(result.latitude, result.longitude)) // eslint-disable-line
-        map.setZoom(6)
-      }, false)
+          Marker.changeColor(makerNum, clickColor)
+          map.panTo(new google.maps.LatLng(result.latitude, result.longitude)) // eslint-disable-line
+          map.setZoom(6)
+        },
+        false
+      )
     }
   }
 }
