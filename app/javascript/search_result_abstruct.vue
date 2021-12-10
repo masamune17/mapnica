@@ -29,8 +29,7 @@ export default {
   },
   computed: {
     divId() {
-      const divId = `search-result${this.resultAbstruct.id}`
-      return divId
+      return `search-result${this.resultAbstruct.id}`
     },
     matchWord() {
       const abstractSearch = this.resultAbstruct.abstract

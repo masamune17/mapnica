@@ -23,8 +23,7 @@ export default {
   },
   computed: {
     divId() {
-      const divId = `search-result${this.resultLabel.id}`
-      return divId
+      return `search-result${this.resultLabel.id}`
     },
     matchWord() {
       const matchSentence = this.resultLabel.label
