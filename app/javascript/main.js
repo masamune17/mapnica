@@ -1,11 +1,11 @@
 export let map
 
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
   initMap()
   searchButtonAction()
-}
+})
 
-function initMap () {
+function initMap() {
   const mapOptions = {
     center: {
       lat: 41,
@@ -17,7 +17,7 @@ function initMap () {
   map = new google.maps.Map(document.getElementById('map'), mapOptions) // eslint-disable-line
 }
 
-function searchButtonAction () {
+function searchButtonAction() {
   const searchItemElement = document.getElementById('js-search-items-container')
   document.getElementById('search-btn').addEventListener('click', function () {
     if (searchItemElement.classList.length === 1) {
