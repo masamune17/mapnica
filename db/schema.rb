@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_190535) do
+ActiveRecord::Schema.define(version: 2021_12_13_052300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "histories", force: :cascade do |t|
-    t.string "label"
-    t.text "abstract"
-    t.float "latitude"
-    t.float "longitude"
-    t.date "accrual_date"
+    t.string "label", null: false
+    t.text "abstract", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.date "accrual_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["accrual_date"], name: "index_histories_on_accrual_date"
+    t.index ["label"], name: "index_histories_on_label"
   end
 
 end
