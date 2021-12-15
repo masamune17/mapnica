@@ -11,7 +11,7 @@ module MetaTagsHelper
       viewport: 'width=device-width, initial-scale=1.0',
       keywords: '歴史, 地図, history, map',
       og: {
-        title: :title,
+        title: :full_title,
         type: 'website',
         site_name: 'Mapnica',
         description: :description,
