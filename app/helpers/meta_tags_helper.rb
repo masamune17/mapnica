@@ -19,7 +19,7 @@ module MetaTagsHelper
         url: 'https://www.mapnica.net'
       },
       twitter: {
-        card: 'summary',
+        card: 'summary_large_image',
         site: '@Masamune_catcat',
         description: :description,
         image: 'https://www.mapnica.net/ogp/ogp.png',
