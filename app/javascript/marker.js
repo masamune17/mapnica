@@ -60,6 +60,15 @@ export class Marker {
         explainElement.classList.add('fadeout-explain')
         explainElement.classList.remove('fadein-explain')
       })
+    document.onclick = closeExplainForClick
+    let clickTime = 0
+    function closeExplainForClick() {
+      clickTime += 1
+      if (clickTime > 1) {
+        explainElement.classList.add('fadeout-explain')
+        explainElement.classList.remove('fadein-explain')
+      }
+    }
   }
 
   static pinSymbol(color) {
